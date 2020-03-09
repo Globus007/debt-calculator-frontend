@@ -9,6 +9,7 @@ import { BillComponent } from './bill/bill.component';
 import { PaymentComponent } from './payment/payment.component';
 import { BalanceComponent } from './balance/balance.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { PaymentDayComponent } from './payment-day/payment-day.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CalculatorComponent } from './calculator/calculator.component';
     BillComponent,
     PaymentComponent,
     BalanceComponent,
-    CalculatorComponent
+    CalculatorComponent,
+    PaymentDayComponent
   ],
   imports: [
     BrowserModule,
