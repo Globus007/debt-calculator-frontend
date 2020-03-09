@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { DebtorComponent } from './debtor/debtor.component';
 import { ContractComponent } from './contract/contract.component';
 import { BillComponent } from './bill/bill.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DebtorComponent,
     ContractComponent,
-    BillComponent
+    BillComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
