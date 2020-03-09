@@ -6,11 +6,21 @@
         <h5>Договор</h5>
         <app-contract></app-contract>
 
-        <h5>ТТН</h5>
-        <app-bill></app-bill>
+        <h5>
+            ТТН
+            <button type="button" (click)="addBill()" class="">add</button>
+        </h5>
+        <div *ngFor="let bill of bills; let i = index">
+            <app-bill></app-bill>
+        </div>
 
-        <h5>Оплаты</h5>
-        <app-payment></app-payment>
+        <h5>
+            Оплаты
+            <button type="button" (click)="addPayment()" class="">add</button>
+        </h5>
+        <div *ngFor="let payment of payments; let i = index">
+            <app-payment></app-payment>
+        </div>
 
         <h5>Общий долг</h5>
         <app-balance></app-balance>
