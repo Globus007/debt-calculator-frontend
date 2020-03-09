@@ -7,6 +7,7 @@ import { DebtorComponent } from './debtor/debtor.component';
 import { ContractComponent } from './contract/contract.component';
 import { BillComponent } from './bill/bill.component';
 import { PaymentComponent } from './payment/payment.component';
+import { BalanceComponent } from './balance/balance.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PaymentComponent } from './payment/payment.component';
     DebtorComponent,
     ContractComponent,
     BillComponent,
-    PaymentComponent
+    PaymentComponent,
+    BalanceComponent
   ],
   imports: [
     BrowserModule,
