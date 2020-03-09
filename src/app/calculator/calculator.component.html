@@ -1,6 +1,22 @@
 <div id="calculator" class="container">
-    <h5>Рассчитать на дату</h5>
     <form>
+        <h5>Должник</h5>
+        <app-debtor></app-debtor>
+
+        <h5>Договор</h5>
+        <app-contract></app-contract>
+
+        <h5>ТТН</h5>
+        <app-bill></app-bill>
+
+        <h5>Оплаты</h5>
+        <app-payment></app-payment>
+
+        <h5>Общий долг</h5>
+        <app-balance></app-balance>
+
+        <h5>Рассчитать на дату</h5>
+
         <label for="calculator-date">Дата: </label>
         <input type="date" name="calculator-date" value="2020-03-08">
         <input type="submit" class="btn btn-primary" value="Рассчитать">
