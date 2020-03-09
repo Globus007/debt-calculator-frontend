@@ -8,6 +8,7 @@ import { ContractComponent } from './contract/contract.component';
 import { BillComponent } from './bill/bill.component';
 import { PaymentComponent } from './payment/payment.component';
 import { BalanceComponent } from './balance/balance.component';
+import { CalculatorComponent } from './calculator/calculator.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BalanceComponent } from './balance/balance.component';
     ContractComponent,
     BillComponent,
     PaymentComponent,
-    BalanceComponent
+    BalanceComponent,
+    CalculatorComponent
   ],
   imports: [
     BrowserModule,
