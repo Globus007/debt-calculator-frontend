@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DebtorComponent } from './debtor/debtor.component';
+import { ContractComponent } from './contract/contract.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DebtorComponent
+    DebtorComponent,
+    ContractComponent
   ],
   imports: [
     BrowserModule,
