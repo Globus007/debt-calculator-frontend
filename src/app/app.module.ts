@@ -10,9 +10,9 @@ import { BillComponent } from './bill/bill.component';
 import { PaymentComponent } from './payment/payment.component';
 import { BalanceComponent } from './balance/balance.component';
 import { CalculatorComponent } from './calculator/calculator.component';
-import { PaymentDayComponent } from './payment-day/payment-day.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CalculatorDataService } from './service/data/calculator-data.service';
+import { CalculationDateComponent } from './calculation-date/calculation-date.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { CalculatorDataService } from './service/data/calculator-data.service';
     PaymentComponent,
     BalanceComponent,
     CalculatorComponent,
-    PaymentDayComponent,
+    CalculationDateComponent,
   ],
   imports: [
     BrowserModule,

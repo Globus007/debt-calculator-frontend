@@ -7,6 +7,8 @@ import { CalculatorDataService } from '../service/data/calculator-data.service';
   styleUrls: ['./balance.component.css']
 })
 export class BalanceComponent implements OnInit {
+ 
+  totalBalance = this.calculatorDataService.totalBalance
 
   constructor(
     private calculatorDataService: CalculatorDataService

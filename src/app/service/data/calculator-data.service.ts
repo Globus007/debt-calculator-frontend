@@ -1,11 +1,5 @@
 import { Injectable } from '@angular/core';
-
-export class Debtor {
-  constructor(
-    public name?: string,
-    public props?: string
-  ) { }
-}
+import { Debtor } from './Debtor';
 
 export class Contract {
   constructor(
@@ -31,16 +25,16 @@ export class Payment {
   ) { }
 }
 
-// export class CalculationData {
-//   constructor(
-//     public debtor: Debtor,
-//     public contract: Contract,
-//     public bills: Array<Bill>,
-//     public payments: Array<Payment>,
-//     public calculationDate: Date,
-//     public totalBalance?: number
-//   ) { }
-// }
+export class TransferData {
+  constructor(
+    public debtor: Debtor,
+    public contract: Contract,
+    public bills: Array<Bill>,
+    public payments: Array<Payment>,
+    public calculationDate: Date,
+    public totalBalance?: number
+  ) { }
+}
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +48,7 @@ export class CalculatorDataService {
   bills: Array<Bill> = [new Bill(1, new Date("2020-01-01"), 1000)]
   payments: Array<Payment> = []
   calculationDate: Date
+  totalBalance: number
 
   constructor(
   ) {
@@ -68,6 +63,7 @@ export class CalculatorDataService {
       new Date("2020-01-01"),
       10
     )
+    this.calculationDate = new Date("2020-03-08")
   }
 
   countTotalBalance() {
