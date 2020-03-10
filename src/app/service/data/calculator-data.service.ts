@@ -1,40 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Debtor } from './Debtor';
-
-export class Contract {
-  constructor(
-    public number?: number,
-    public date?: Date,
-    public paymentDate?: Date,
-    public fine?: number
-  ) { }
-}
-
-export class Bill {
-  constructor(
-    public number?: number,
-    public date?: Date,
-    public amount?: number
-  ) { }
-}
-
-export class Payment {
-  constructor(
-    public date?: Date,
-    public amount?: number
-  ) { }
-}
-
-export class TransferData {
-  constructor(
-    public debtor: Debtor,
-    public contract: Contract,
-    public bills: Array<Bill>,
-    public payments: Array<Payment>,
-    public calculationDate: Date,
-    public totalBalance?: number
-  ) { }
-}
+import { Contract } from './Contract';
+import { Bill } from './Bill';
+import { Payment } from './Payment';
 
 @Injectable({
   providedIn: 'root'

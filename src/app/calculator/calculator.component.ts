@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CalculatorDataService, Bill, Payment } from '../service/data/calculator-data.service';
+import { CalculatorDataService } from '../service/data/calculator-data.service';
+import { Payment } from "../service/data/Payment";
+import { Bill } from "../service/data/Bill";
 
 @Component({
   selector: 'app-calculator',
