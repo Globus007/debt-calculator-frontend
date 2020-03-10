@@ -53,9 +53,22 @@ export class CalculatorDataService {
   calculationData: number
   bills: Array<Bill> = [new Bill(1, new Date("2020-01-01"), 1000)]
   payments: Array<Payment> = []
+  calculationDate: Date
 
   constructor(
-  ) { }
+  ) {
+    //  init test parameters
+    this.debtor = new Debtor(
+      "ООО Печки-лавочки",
+      "246005 г. Могилев, ул. Рабочая, 3"
+    )
+    this.contract = new Contract(
+      22,
+      new Date("2019-01-01"),
+      new Date("2020-01-01"),
+      10
+    )
+  }
 
   countTotalBalance() {
     let totalBalance = 0

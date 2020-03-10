@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalculatorDataService } from '../service/data/calculator-data.service';
 
 @Component({
   selector: 'app-contract',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContractComponent implements OnInit {
 
-  constructor() { }
+  contract = this.calculatorDataService.contract
+
+  constructor(
+    private calculatorDataService: CalculatorDataService
+  ) { }
 
   ngOnInit(): void {
   }

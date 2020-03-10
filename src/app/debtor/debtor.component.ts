@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Debtor } from '../service/data/calculator-data.service';
+import { CalculatorDataService } from '../service/data/calculator-data.service';
 
 @Component({
   selector: 'app-debtor',
@@ -8,18 +8,13 @@ import { Debtor } from '../service/data/calculator-data.service';
 })
 export class DebtorComponent implements OnInit {
 
-  name: string
-  props: string
+  debtor = this.calculatorDataService.debtor
 
-  constructor() { }
+  constructor(
+    private calculatorDataService: CalculatorDataService
+  ) { }
 
   ngOnInit(): void {
-    this.name = "ООО Печки-лавочки"
-    this.props = "246005 г. Могилев, ул. Рабочая, 3"
-  }
-
-  getDebtorData() {
-    return new Debtor(this.name, this.props)
   }
 
 }
