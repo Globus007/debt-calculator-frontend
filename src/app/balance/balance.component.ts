@@ -21,4 +21,8 @@ export class BalanceComponent implements OnInit {
     return this.calculatorDataService.countTotalBalance()
   }
 
+  setTotalBalance(balance: number) {
+    this.calculatorDataService.totalBalance = balance
+  }
+
 }

@@ -17,4 +17,7 @@ export class CalculationDateComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  setCalculationDate(date: Date) {
+    this.calculatorDataService.calculationDate = date
+  }
 }

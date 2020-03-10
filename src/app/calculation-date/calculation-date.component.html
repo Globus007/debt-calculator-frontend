@@ -2,6 +2,6 @@
 
     <label for="calculator-date">Дата: </label>
     <input type="date" name="calculation-date" [ngModel]="calculationDate | date:'yyyy-MM-dd'"
-        (ngModelChange)="calculationDate = $event">
+        (ngModelChange)="setCalculationDate($event)">
 
 </div>

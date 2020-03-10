@@ -2,6 +2,6 @@
 
     <label for="balance-amount">Общий долг: </label>
     <input type="number" name="balance-amount" [ngModel]="countTotalBalance()"
-        (ngModelChange)="totalBalance = $event">
+        (ngModelChange)="setTotalBalance($event)">
 
 </div>

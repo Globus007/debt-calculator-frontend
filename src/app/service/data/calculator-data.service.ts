@@ -3,6 +3,8 @@ import { Debtor } from './Debtor';
 import { Contract } from './Contract';
 import { Bill } from './Bill';
 import { Payment } from './Payment';
+import { CalculationRESTService } from '../rest/calculation-rest.service';
+import { TransferData } from './TransferData';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +14,13 @@ export class CalculatorDataService {
 
   debtor: Debtor
   contract: Contract
-  calculationData: number
   bills: Array<Bill> = [new Bill(1, new Date("2020-01-01"), 1000)]
   payments: Array<Payment> = []
   calculationDate: Date
   totalBalance: number
 
   constructor(
+    private restService: CalculationRESTService
   ) {
     //  init test parameters
     this.debtor = new Debtor(
@@ -45,5 +47,20 @@ export class CalculatorDataService {
     return totalBalance
   }
 
+  makeCalculation() {
 
+    let transferData = new TransferData(
+      this.debtor,
+      this.contract,
+      this.bills,
+      this.payments,
+      this.calculationDate,
+      this.totalBalance
+    )
+
+    console.log(transferData)
+    // this.restService.sendData(transferData).subscribe(data => {
+    //   // console.log(data)
+    // })
+  }
 }
