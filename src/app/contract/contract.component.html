@@ -1,17 +1,30 @@
-<div id="contract" class="">
+<div id="contract" class="form-group row">
 
-    <label for="contract-number">Номер: </label>
-    <input type="text" name="contract-number" size="5" [(ngModel)]="contract.number">
+    <div class="col-auto">
+        <label for="contract-number">Номер: </label>
+        <input class="form-control" type="text" name="contract-number" size="5" [(ngModel)]="contract.number">
+    </div>
 
-    <label for="contract-date">Дата: </label>
-    <input type="date" name="contract-date" [ngModel]="contract.date | date:'yyyy-MM-dd'"
-        (ngModelChange)="contract.date = $event">
+    <div class="col-auto">
+        <label for="contract-date">Дата: </label>
+        <input class="form-control" type="date" name="contract-date" [ngModel]="contract.date | date:'yyyy-MM-dd'"
+            (ngModelChange)="contract.date = $event">
+    </div>
 
-    <label for="contract-pay-date">Срок оплаты: </label>
-    <input type="date" name="contract-pay-date" [ngModel]="contract.paymentDate | date:'yyyy-MM-dd'"
-        (ngModelChange)="contract.paymentDate = $event">
+    <div class="col-auto">
+        <label for="contract-pay-date">Срок оплаты: </label>
+        <input class="form-control" type="date" name="contract-pay-date"
+            [ngModel]="contract.paymentDate | date:'yyyy-MM-dd'" (ngModelChange)="contract.paymentDate = $event">
+    </div>
 
-    <label for="contract-fine">Пеня: </label>
-    <input type="number" name="contract-fine" size="3" [(ngModel)]="contract.fine">
+    <div class="col-auto">
+        <label for="contract-fine">Пеня: </label>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text">%</div>
+            </div>
+            <input class="form-control" type="number" name="contract-fine" size="3" [(ngModel)]="contract.fine">
+        </div>
+    </div>
 
 </div>

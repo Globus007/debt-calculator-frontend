@@ -1,12 +1,15 @@
 <div id="calculator" class="container">
     <form>
-        <h5>Должник</h5>
+        <hr>
+        <h5 class="mt-3">Должник</h5>
         <app-debtor></app-debtor>
 
-        <h5>Договор</h5>
+        <hr>
+        <h5 class="mt-1">Договор</h5>
         <app-contract></app-contract>
 
-        <h5>
+        <hr>
+        <h5 class="mt-1">
             ТТН
             <button type="button" (click)="addBill()" class="">add</button>
         </h5>
@@ -14,7 +17,8 @@
             <app-bill [index]="i"></app-bill>
         </div>
 
-        <h5>
+        <hr>
+        <h5 class="mt-1">
             Оплаты
             <button type="button" (click)="addPayment()" class="">add</button>
         </h5>
@@ -22,6 +26,7 @@
             <app-payment [index]="i"></app-payment>
         </div>
 
+        <hr>
         <h5>Общий долг</h5>
         <app-balance></app-balance>
 
