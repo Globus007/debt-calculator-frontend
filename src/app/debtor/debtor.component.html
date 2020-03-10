@@ -1,6 +1,9 @@
 <div id="debtor" class="">
+
     <label for="debtor-name">Название: </label>
-    <input type="text" name="debtor-name" size="25" value="ООО Печки-лавочки">
+    <input type="text" name="debtor-name" size="25" [(ngModel)]="name">
+
     <label for="debtor-props">Реквизиты: </label>
-    <input type="text" name="debtor-props" size="40" value="246005 г. Могилев, ул. Рабочая, 3">
+    <input type="text" name="debtor-props" size="40" [(ngModel)]="props">
+
 </div>

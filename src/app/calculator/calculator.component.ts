@@ -1,22 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export class Bill {
-  constructor(
-    public number?: number,
-    public date?: Date,
-    public amount?: number
-  ) { }
-}
-
-export class Payment {
-  constructor(
-    public date?: Date,
-    public amount?: number
-  ) {}
-}
-
-export let bills: Array<Bill> = [new Bill(1, new Date("2020-01-01"), 1000)]
-export let payments: Array<Payment> = []
+import { CalculatorDataService, Bill, Payment } from '../service/data/calculator-data.service';
 
 @Component({
   selector: 'app-calculator',
@@ -26,18 +9,32 @@ export let payments: Array<Payment> = []
 
 export class CalculatorComponent implements OnInit {
 
-  bills = bills
-  payments = payments
+  bills = this.calculationDataService.bills
+  payments = this.calculationDataService.payments
+
+  constructor(
+    private calculationDataService: CalculatorDataService
+  ) { }
 
   addBill() {
-    bills.push(new Bill(1, new Date("2020-01-01"), 1000))
+    let lastBill = this.bills[this.bills.length-1]
+    this.calculationDataService.bills.push(
+      new Bill(
+        lastBill.number + 1,
+        new Date(lastBill.date),
+        lastBill.amount)
+    )
   }
 
   addPayment() {
-    payments.push(new Payment(new Date("2020-01-01"), 100))
+    this.calculationDataService.payments.push(new Payment(new Date("2020-01-01"), 100))
   }
 
-  constructor() { }
+  makeCalculation() {
+    // this.service.sendData(calculationData).subscribe (data => {
+    //   console.log(data)
+    // })
+  }
 
   ngOnInit(): void {
   }

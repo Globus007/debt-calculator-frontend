@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { bills } from '.././calculator/calculator.component';
+import { Component, OnInit, Input } from '@angular/core';
+import { CalculatorDataService, Bill } from '../service/data/calculator-data.service';
 
 @Component({
   selector: 'app-bill',
@@ -8,16 +8,26 @@ import { bills } from '.././calculator/calculator.component';
 })
 export class BillComponent implements OnInit {
 
-  bills = bills;
-  index
+  @Input() index: number
+  bill: Bill
 
-  constructor() { }
+  constructor(
+    private calculatorDataService: CalculatorDataService
+  ) { }
 
   deleteBill() {
-    bills.pop()
+    this.calculatorDataService.bills.splice(this.index, 1)    
   }
 
   ngOnInit(): void {
+    this.bill = this.calculatorDataService.bills[this.index]
+  }
+
+  displayDeleteButton() {
+    if (this.calculatorDataService.bills.length > 1) {
+      return true
+    }
+    return false
   }
 
 }

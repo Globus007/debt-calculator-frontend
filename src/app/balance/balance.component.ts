@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { bills } from '.././calculator/calculator.component';
-import { payments } from '.././calculator/calculator.component';
+import { CalculatorDataService } from '../service/data/calculator-data.service';
 
 @Component({
   selector: 'app-balance',
@@ -9,25 +8,15 @@ import { payments } from '.././calculator/calculator.component';
 })
 export class BalanceComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private calculatorDataService: CalculatorDataService
+  ) { }
 
   ngOnInit(): void {
   }
 
   countTotalBalance() {
-
-    let totalBalance = 0
-
-    bills.forEach(bill => {
-      totalBalance += bill.amount
-    });
-
-    payments.forEach(payment => {
-      totalBalance -= payment.amount
-    })
-
-    console.log("total balance: " + totalBalance)
-    return totalBalance
+    return this.calculatorDataService.countTotalBalance()
   }
 
 }

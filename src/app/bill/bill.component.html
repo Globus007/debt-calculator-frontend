@@ -1,14 +1,14 @@
 <div id="bill" class="">
 
         <label for="bill-number">Номер: </label>
-        <input type="text" name="bill-number" size="5" [(ngModel)]="bills[0].number">
+        <input type="text" name="bill-number" size="5" [(ngModel)]="bill.number">
 
         <label for="bill-date">Дата: </label>
-        <input type="date" name="bill-date" [ngModel]="bills[0].date | date:'yyyy-MM-dd'"
-                (ngModelChange)="bills[0].date = $event">
+        <input type="date" name="bill-date" [ngModel]="bill.date | date:'yyyy-MM-dd'"
+                (ngModelChange)="bill.date = $event">
 
         <label for="bill-amount">Сумма: </label>
-        <input type="number" name="bill-amount" size="10" [(ngModel)]="bills[0].amount">
+        <input type="number" name="bill-amount" size="10" [(ngModel)]="bill.amount">
 
-        <button *ngIf="index != 0" type="button" (click)="deleteBill()">delete</button>
+        <button *ngIf="displayDeleteButton()" type="button" (click)="deleteBill()">delete</button>
 </div>

@@ -11,6 +11,8 @@ import { PaymentComponent } from './payment/payment.component';
 import { BalanceComponent } from './balance/balance.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { PaymentDayComponent } from './payment-day/payment-day.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CalculatorDataService } from './service/data/calculator-data.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,10 @@ import { PaymentDayComponent } from './payment-day/payment-day.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CalculatorDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { payments } from '.././calculator/calculator.component';
+import { Component, OnInit, Input } from '@angular/core';
+import { CalculatorDataService } from '../service/data/calculator-data.service';
 
 @Component({
   selector: 'app-payment',
@@ -8,14 +8,17 @@ import { payments } from '.././calculator/calculator.component';
 })
 export class PaymentComponent implements OnInit {
   
+  @Input() index: number
 
-  constructor() { }
+  constructor(
+    private calculatorData: CalculatorDataService
+  ) { }
 
   ngOnInit(): void {
   }
 
   deletePayment() {
-    payments.pop()
+    this.calculatorData.payments.splice(this.index, 1)
   }
 
 }
