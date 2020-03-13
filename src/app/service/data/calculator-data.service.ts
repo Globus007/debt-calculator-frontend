@@ -59,8 +59,8 @@ export class CalculatorDataService {
     )
 
     console.log(transferData)
-    // this.restService.sendData(transferData).subscribe(data => {
-    //   // console.log(data)
-    // })
+    this.restService.sendData(transferData).subscribe(data => {
+      console.log(data)
+    })
   }
 }

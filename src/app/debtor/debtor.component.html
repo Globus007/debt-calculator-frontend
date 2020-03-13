@@ -1,9 +1,12 @@
 <div id="debtor" class="">
 
-    <label for="debtor-name">Название: </label>
-    <input type="text" name="debtor-name" size="25" [(ngModel)]="debtor.name">
+    <div class="form-group form-inline">
+        <label class="col-sm-3" for="debtor-name">Название: </label>
+        <input class="form-control col-sm-9" type="text" name="debtor-name" size="25" [(ngModel)]="debtor.name">
+    </div>
 
-    <label for="debtor-props">Реквизиты: </label>
-    <input type="text" name="debtor-props" size="40" [(ngModel)]="debtor.props">
-
+    <div class="form-group form-inline">
+        <label class="col-sm-3" for="debtor-props">Реквизиты: </label>
+        <input class="form-control col-sm-9" type="text" name="debtor-props" size="40" [(ngModel)]="debtor.props">
+    </div>
 </div>

@@ -1,30 +1,23 @@
-<div id="contract" class="form-group row">
+<div id="contract" class="">
 
-    <div class="col-auto">
-        <label for="contract-number">Номер: </label>
-        <input class="form-control" type="text" name="contract-number" size="5" [(ngModel)]="contract.number">
+    <div class="form-group form-inline">
+        <label class="col-sm-3" for="contract-number">Номер: </label>
+        <input class="form-control col-sm-4" type="text" name="contract-number" size="5" [(ngModel)]="contract.number">
+    </div>
+    <div class="form-group form-inline">
+        <label class="col-sm-3" for="contract-date">Дата: </label>
+        <input class="form-control col-sm-4" type="date" name="contract-date"
+            [ngModel]="contract.date | date:'yyyy-MM-dd'" (ngModelChange)="contract.date = $event">
     </div>
 
-    <div class="col-auto">
-        <label for="contract-date">Дата: </label>
-        <input class="form-control" type="date" name="contract-date" [ngModel]="contract.date | date:'yyyy-MM-dd'"
-            (ngModelChange)="contract.date = $event">
-    </div>
-
-    <div class="col-auto">
-        <label for="contract-pay-date">Срок оплаты: </label>
-        <input class="form-control" type="date" name="contract-pay-date"
+    <div class="form-group form-inline">
+        <label class="col-sm-3" for="contract-pay-date">Оплата на: </label>
+        <input class="form-control col-sm-4" type="date" name="contract-pay-date"
             [ngModel]="contract.paymentDate | date:'yyyy-MM-dd'" (ngModelChange)="contract.paymentDate = $event">
     </div>
-
-    <div class="col-auto">
-        <label for="contract-fine">Пеня: </label>
-        <div class="input-group mb-2">
-            <div class="input-group-prepend">
-                <div class="input-group-text">%</div>
-            </div>
-            <input class="form-control" type="number" name="contract-fine" size="3" [(ngModel)]="contract.fine">
-        </div>
+    <div class="form-group form-inline">
+        <label class="col-sm-3" for="contract-fine">Пеня: </label>
+        <input class="form-control col-sm-4" type="number" name="contract-fine" size="3" [(ngModel)]="contract.fine">
     </div>
 
 </div>

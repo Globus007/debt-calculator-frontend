@@ -1,27 +1,22 @@
-<div id="bill" class="form-group row">
+<div id="bill" class="">
 
-        <div class="col-auto">
-                <label class="col-sm-2 col-form-label" for="bill-number">Номер: </label>
-                <input class="form-control" type="text" name="bill-number" [(ngModel)]="bill.number">
+        <div class="form-group form-inline">
+                <label class="col-sm-3" for="bill-number">Номер: </label>
+                <input class="form-control col-sm-4" type="text" name="bill-number" size="5" [(ngModel)]="bill.number">
         </div>
 
-        <div class="col-auto">
-                <label class="col-sm-2 col-form-label" for="bill-date">Дата: </label>
-                <input class="form-control" type="date" name="bill-date" [ngModel]="bill.date | date:'yyyy-MM-dd'"
-                        (ngModelChange)="bill.date = $event">
+        <div class="form-group form-inline">
+                <label class="col-sm-3" for="bill-date">Дата: </label>
+                <input class="form-control col-sm-4" type="date" name="bill-date"
+                        [ngModel]="bill.date | date:'yyyy-MM-dd'" (ngModelChange)="bill.date = $event">
         </div>
 
-        <div class="col-auto">
-                <label class="col-sm-2 col-form-label" for="bill-amount">Сумма: </label>
-                <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                                <div class="input-group-text">руб.</div>
-                        </div>
-                        <input class="form-control" type="number" name="bill-amount" [(ngModel)]="bill.amount">
-                </div>
-        </div>
+        <div class="form-group form-inline">
+                <label class="col-sm-3" for="bill-amount">Сумма: </label>
+                <input class="form-control col-sm-4" type="text" name="bill-amount" size="10"
+                        [(ngModel)]="bill.amount">
 
-        <div class="col-auto">
                 <button *ngIf="displayDeleteButton()" type="button" (click)="deleteBill()">delete</button>
         </div>
+
 </div>

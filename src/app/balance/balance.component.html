@@ -1,7 +1,10 @@
 <div id="balance" class="">
 
-    <label for="balance-amount">Общий долг: </label>
-    <input type="number" name="balance-amount" [ngModel]="countTotalBalance()"
-        (ngModelChange)="setTotalBalance($event)">
+    <div class="form-group form-inline">
+        <label class="col-sm-4" for="balance-amount">Общий долг: </label>
+        <input class="form-control col-sm-3" type="text" name="balance-amount" 
+            [ngModel]="countTotalBalance()"
+            (ngModelChange)="setTotalBalance($event)">
+    </div>
 
 </div>

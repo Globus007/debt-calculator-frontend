@@ -1,6 +1,7 @@
-<div id="calculator" class="container">
+<div class="calculator-body">
+<h2 class="container calculator-heading col-md-5 mt-0 mb-3 my-md-0 py-3 text-center d-block">Калькулятор задолженности</h2>
+<div id="calculator" class="container calculator-input col-11 mx-auto col-md-5 px-2 px-lg-5 py-3">
     <form>
-        <hr>
         <h5 class="mt-3">Должник</h5>
         <app-debtor></app-debtor>
 
@@ -11,7 +12,7 @@
         <hr>
         <h5 class="mt-1">
             ТТН
-            <button type="button" (click)="addBill()" class="">add</button>
+            <!-- <button type="button" (click)="addBill()" class="">add</button> -->
         </h5>
         <div *ngFor="let bill of bills; let i=index">
             <app-bill [index]="i"></app-bill>
@@ -20,7 +21,7 @@
         <hr>
         <h5 class="mt-1">
             Оплаты
-            <button type="button" (click)="addPayment()" class="">add</button>
+            <button type="button" (click)="addPayment()" class="btn btn-outline-info btn-sm"> + </button>
         </h5>
         <div *ngFor="let payment of payments; let i = index">
             <app-payment [index]="i"></app-payment>
@@ -33,6 +34,9 @@
         <h5>Рассчитать на дату</h5>
         <app-calculation-date></app-calculation-date>
 
-        <input type="button" (click)="makeCalculation()" class="btn btn-primary" value="Рассчитать">
+        <div class="col-12 mt-3 calculate-button-parent">
+            <input class="btn btn-warning btn-lg btn-block" type="button" (click)="makeCalculation()" value="Рассчитать">
+        </div>
     </form>
+</div>
 </div>

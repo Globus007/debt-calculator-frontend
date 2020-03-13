@@ -1,7 +1,9 @@
 <div name="calculation-date" class="">
 
-    <label for="calculator-date">Дата: </label>
-    <input type="date" name="calculation-date" [ngModel]="calculationDate | date:'yyyy-MM-dd'"
-        (ngModelChange)="setCalculationDate($event)">
+    <div class="form-group form-inline">
+        <label class="col-sm-3" for="calculator-date">Дата: </label>
+        <input class="form-control col-sm-4" type="date" name="calculation-date"
+            [ngModel]="calculationDate | date:'yyyy-MM-dd'" (ngModelChange)="setCalculationDate($event)">
+    </div>
 
 </div>

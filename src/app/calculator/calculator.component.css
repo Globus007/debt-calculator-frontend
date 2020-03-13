@@ -1,0 +1,11 @@
+.calculator-input {
+    background: #F2F2F2;
+}
+.calculator-heading {
+    background: rgba(52, 182, 204, 0.67);
+    color: #fff;
+}
+.calculator-body {
+    background: url(/assets/img/bck.jpg)no-repeat;
+    background-size: cover;
+}

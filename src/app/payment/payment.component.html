@@ -1,10 +1,13 @@
 <div id="payment" class="">
 
-    <label for="payment-date">Дата: </label>
-    <input type="date" name="payment-date" value="2019-01-10">
+    <div class="form-group form-inline">
+        <label class="col-sm-2" for="payment-date">Дата: </label>
+        <input class="form-control col-sm-4" type="date" name="payment-date" value="2019-01-10">
 
-    <label for="payment-amount">Сумма: </label>
-    <input type="number" name="payment-amount" size="3" value="100">
+        <label class="col-sm-2" for="payment-amount">Сумма: </label>
+        <input class="form-control col-sm-3" type="text" name="payment-amount" size="3" value="100">
 
-    <button type="button" (click)="deletePayment()">delete</button>
+        <button class="btn btn-info" type="button" (click)="deletePayment()"> - </button>
+    </div>
+    
 </div>
