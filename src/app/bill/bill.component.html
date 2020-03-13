@@ -1,22 +1,19 @@
 <div id="bill" class="">
 
         <div class="form-group form-inline">
-                <label class="col-sm-3" for="bill-number">Номер: </label>
-                <input class="form-control col-sm-4" type="text" name="bill-number" size="5" [(ngModel)]="bill.number">
-        </div>
 
-        <div class="form-group form-inline">
-                <label class="col-sm-3" for="bill-date">Дата: </label>
-                <input class="form-control col-sm-4" type="date" name="bill-date"
+                <label class="col-sm-1 justify-content-end" for="bill-number">Номер: </label>
+                <input class="form-control col-sm-1" type="text" name="bill-number" size="5" [(ngModel)]="bill.number">
+
+                <label class="col-sm-1 justify-content-end" for="bill-date">Дата: </label>
+                <input class="form-control col-sm-2" type="date" name="bill-date"
                         [ngModel]="bill.date | date:'yyyy-MM-dd'" (ngModelChange)="bill.date = $event">
-        </div>
 
-        <div class="form-group form-inline">
-                <label class="col-sm-3" for="bill-amount">Сумма: </label>
-                <input class="form-control col-sm-4" type="text" name="bill-amount" size="10"
-                        [(ngModel)]="bill.amount">
+                <label class="col-sm-2 justify-content-end" for="bill-amount">Сумма: </label>
+                <input class="form-control col-sm-2" type="text" name="bill-amount" size="10" [(ngModel)]="bill.amount">
 
                 <button *ngIf="displayDeleteButton()" type="button" (click)="deleteBill()">delete</button>
+                
         </div>
 
 </div>

@@ -20,4 +20,8 @@ export class CalculationDateComponent implements OnInit {
   setCalculationDate(date: Date) {
     this.calculatorDataService.calculationDate = date
   }
+  
+  makeCalculation() {
+    this.calculatorDataService.makeCalculation()
+  }
 }

@@ -1,23 +1,22 @@
 <div id="contract" class="">
 
     <div class="form-group form-inline">
-        <label class="col-sm-3" for="contract-number">Номер: </label>
-        <input class="form-control col-sm-4" type="text" name="contract-number" size="5" [(ngModel)]="contract.number">
-    </div>
-    <div class="form-group form-inline">
-        <label class="col-sm-3" for="contract-date">Дата: </label>
-        <input class="form-control col-sm-4" type="date" name="contract-date"
+
+        <label class="col-sm-1 justify-content-end" for="contract-number">Номер: </label>
+        <input class="form-control col-sm-1" type="text" name="contract-number" size="5" [(ngModel)]="contract.number">
+
+        <label class="col-sm-1 justify-content-end" for="contract-date">Дата: </label>
+        <input class="form-control col-sm-2" type="date" name="contract-date"
             [ngModel]="contract.date | date:'yyyy-MM-dd'" (ngModelChange)="contract.date = $event">
+
+        <label class="col-sm-2 justify-content-end" for="contract-pay-date">Дата оплаты: </label>
+        <input class="form-control col-sm-2" type="date" name="contract-pay-date"
+            [ngModel]="contract.paymentDate | date:'yyyy-MM-dd'" (ngModelChange)="contract.paymentDate = $event">
+
+        <label class="col-sm-1 justify-content-end" for="contract-fine">Пеня: </label>
+        <input class="form-control col-sm-1" type="number" name="contract-fine" size="3" [(ngModel)]="contract.fine">
+    
     </div>
 
-    <div class="form-group form-inline">
-        <label class="col-sm-3" for="contract-pay-date">Оплата на: </label>
-        <input class="form-control col-sm-4" type="date" name="contract-pay-date"
-            [ngModel]="contract.paymentDate | date:'yyyy-MM-dd'" (ngModelChange)="contract.paymentDate = $event">
-    </div>
-    <div class="form-group form-inline">
-        <label class="col-sm-3" for="contract-fine">Пеня: </label>
-        <input class="form-control col-sm-4" type="number" name="contract-fine" size="3" [(ngModel)]="contract.fine">
-    </div>
 
 </div>

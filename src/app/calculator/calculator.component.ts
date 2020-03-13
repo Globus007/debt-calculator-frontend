@@ -11,16 +11,16 @@ import { Bill } from "../service/data/Bill";
 
 export class CalculatorComponent implements OnInit {
 
-  bills = this.calculationDataService.bills
-  payments = this.calculationDataService.payments
+  bills = this.calculatorDataService.bills
+  payments = this.calculatorDataService.payments
 
   constructor(
-    private calculationDataService: CalculatorDataService
+    private calculatorDataService: CalculatorDataService
   ) { }
 
   addBill() {
     let lastBill = this.bills[this.bills.length - 1]
-    this.calculationDataService.bills.push(
+    this.calculatorDataService.bills.push(
       new Bill(
         lastBill.number + 1,
         new Date(lastBill.date),
@@ -29,13 +29,9 @@ export class CalculatorComponent implements OnInit {
   }
 
   addPayment() {
-    this.calculationDataService.payments.push(
+    this.calculatorDataService.payments.push(
       new Payment(new Date("2020-01-01"), 100)
     )
-  }
-
-  makeCalculation() {
-    this.calculationDataService.makeCalculation()
   }
 
   ngOnInit(): void {
