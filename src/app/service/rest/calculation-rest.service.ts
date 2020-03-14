@@ -13,6 +13,6 @@ export class CalculationRESTService {
 
   sendData(data: TransferData) {
     // return this.http.post("http://localhost:8080/makeCalculation", data)
-    return this.http.post("http://https://debt-count.herokuapp.com/makeCalculation", data)
+    return this.http.post("https://https://debt-count.herokuapp.com/makeCalculation", data)
   }
 }
