@@ -1,5 +1,5 @@
 <div class="">
-    <div *ngFor="let calculatingInfo of calculation.calculatingInfo"> 
+    <div *ngFor="let calculatingInfo of this.calculatorDataService.calculation.calculatingInfo"> 
         <p class="text-center">{{ calculatingInfo }}</p>
     </div>
 </div>

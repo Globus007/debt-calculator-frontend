@@ -11,7 +11,8 @@ export class CalculationInfoComponent implements OnInit {
   calculation = this.calculatorDataService.calculation
   
   constructor(
-    private calculatorDataService: CalculatorDataService
+    //todo: fix to private
+    public calculatorDataService: CalculatorDataService
   ) { }
 
   ngOnInit(): void {
