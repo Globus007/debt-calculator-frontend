@@ -5,6 +5,7 @@ import { Bill } from './Bill';
 import { Payment } from './Payment';
 import { CalculationRESTService } from '../rest/calculation-rest.service';
 import { TransferData } from './TransferData';
+import { Calculation } from './Calculation';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class CalculatorDataService {
   payments: Array<Payment> = []
   calculationDate: Date
   totalBalance: number
+  calculation: Calculation
 
   constructor(
     private restService: CalculationRESTService
@@ -59,8 +61,9 @@ export class CalculatorDataService {
     )
 
     console.log(transferData)
-    this.restService.sendData(transferData).subscribe(data => {
-      console.log(data)
+    this.restService.sendData(transferData).subscribe((data: Calculation) => {
+      this.calculation = data
+      console.log(this.calculation)
     })
   }
 }

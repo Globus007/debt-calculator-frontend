@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CalculatorDataService } from '../service/data/calculator-data.service';
+import { Payment } from '../service/data/Payment';
 
 @Component({
   selector: 'app-payment',
@@ -9,16 +10,18 @@ import { CalculatorDataService } from '../service/data/calculator-data.service';
 export class PaymentComponent implements OnInit {
   
   @Input() index: number
+  payment: Payment
 
-  constructor(
-    private calculatorData: CalculatorDataService
+  constructor( 
+    private calculatorDataService: CalculatorDataService
   ) { }
 
   ngOnInit(): void {
+    this.payment = this.calculatorDataService.payments[this.index]
   }
 
   deletePayment() {
-    this.calculatorData.payments.splice(this.index, 1)
+    this.calculatorDataService.payments.splice(this.index, 1)
   }
 
 }

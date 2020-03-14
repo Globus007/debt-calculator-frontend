@@ -37,4 +37,11 @@ export class CalculatorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  hasCalculation() {
+    if (this.calculatorDataService.calculation) {
+      return true
+    }
+    return false
+  }
+
 }

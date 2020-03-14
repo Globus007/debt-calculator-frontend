@@ -14,7 +14,7 @@
             [ngModel]="contract.paymentDate | date:'yyyy-MM-dd'" (ngModelChange)="contract.paymentDate = $event">
 
         <label class="col-sm-1 justify-content-end" for="contract-fine">Пеня: </label>
-        <input class="form-control col-sm-1" type="number" name="contract-fine" size="3" [(ngModel)]="contract.fine">
+        <input class="form-control col-sm-1" type="text" name="contract-fine" size="3" [(ngModel)]="contract.fine">
     
     </div>
 
