@@ -56,10 +56,10 @@ export class CalculatorDataService {
     // console.log(transferData)
     this.restService.sendData(transferData).subscribe((data: Calculation) => {
       this.calculation = data
+      this.error = null
       // console.log(this.calculation)
     }, error => {
       this.error = error    
-      console.error(error);
     })
   }
 }
