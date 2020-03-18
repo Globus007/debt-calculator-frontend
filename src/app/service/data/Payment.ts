@@ -1,6 +1,6 @@
 export class Payment {
     constructor(
-        public date?: Date,
-        public amount?: number
+        public amount?: number,
+        public date?: Date
     ) { }
 }

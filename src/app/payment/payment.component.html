@@ -4,11 +4,17 @@
 
         <div class="col-sm-2"></div>
         <label class="col-sm-1 justify-content-end" for="payment-date">Дата: </label>
-        <input class="form-control col-sm-2" type="date" name="payment-date" [ngModel]="payment.date | date:'yyyy-MM-dd'"
-            (ngModelChange)="payment.date = $event">
+        <input class="form-control col-sm-2" type="date" name="payment-date"
+            [ngModel]="payment.date | date:'yyyy-MM-dd'" (ngModelChange)="payment.date = $event">
 
         <label class="col-sm-2 justify-content-end" for="payment-amount">Сумма: </label>
-        <input class="form-control col-sm-2" type="text" name="payment-amount" size="3" [(ngModel)]="payment.amount">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">руб.</span>
+            </div>
+            <input class="form-control col-sm-10" type="text" name="payment-amount" size="10"
+                [(ngModel)]="payment.amount">
+        </div>
 
         <div class="col-sm-1">
             <button class="btn btn-info" type="button" (click)="deletePayment()"> - </button>

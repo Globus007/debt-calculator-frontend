@@ -15,7 +15,7 @@ export class CalculatorDataService {
 
   debtor: Debtor
   contract: Contract
-  bills: Array<Bill> = [new Bill(1, new Date("2020-01-01"), 1000)]
+  bills: Array<Bill> = [new Bill(0)]
   payments: Array<Payment> = []
   calculationDate: Date
   totalBalance: number
@@ -24,22 +24,12 @@ export class CalculatorDataService {
   constructor(
     private restService: CalculationRESTService
   ) {
-    //  init test parameters
-    this.debtor = new Debtor(
-      "ООО Печки-лавочки",
-      "246005 г. Могилев, ул. Рабочая, 3"
-    )
-    this.contract = new Contract(
-      22,
-      new Date("2019-01-01"),
-      new Date("2020-01-01"),
-      10
-    )
-    this.calculationDate = new Date("2020-03-08")
+    this.debtor = new Debtor()
+    this.contract = new Contract()
   }
 
   countTotalBalance() {
-    let totalBalance = 0
+    let totalBalance:number = 0
     this.bills.forEach(bill => {
       totalBalance += bill.amount
     });

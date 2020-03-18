@@ -9,13 +9,19 @@
         <input class="form-control col-sm-2" type="date" name="contract-date"
             [ngModel]="contract.date | date:'yyyy-MM-dd'" (ngModelChange)="contract.date = $event">
 
-        <label class="col-sm-2 justify-content-end" for="contract-pay-date">Дата оплаты: </label>
+        <label class="col-sm-1 justify-content-end text-center" for="contract-pay-date">Дата оплаты: </label>
         <input class="form-control col-sm-2" type="date" name="contract-pay-date"
-            [ngModel]="contract.paymentDate | date:'yyyy-MM-dd'" (ngModelChange)="contract.paymentDate = $event">
+            [ngModel]="contract.paymentDate | date:'yyyy-MM-dd'" (ngModelChange)="contract.paymentDate = $event"
+            required>
 
         <label class="col-sm-1 justify-content-end" for="contract-fine">Пеня: </label>
-        <input class="form-control col-sm-1" type="text" name="contract-fine" size="3" [(ngModel)]="contract.fine">
-    
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">%</span>
+            </div>
+            <input class="form-control col-sm-4" type="text" name="contract-fine" maxlength=5 min=0 width="10"
+                [(ngModel)]="contract.fine" required>
+        </div>
     </div>
 
 

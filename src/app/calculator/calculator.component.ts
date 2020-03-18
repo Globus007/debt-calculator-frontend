@@ -19,18 +19,14 @@ export class CalculatorComponent implements OnInit {
   ) { }
 
   addBill() {
-    let lastBill = this.bills[this.bills.length - 1]
     this.calculatorDataService.bills.push(
-      new Bill(
-        lastBill.number + 1,
-        new Date(lastBill.date),
-        lastBill.amount)
+      new Bill(0)
     )
   }
 
   addPayment() {
     this.calculatorDataService.payments.push(
-      new Payment(new Date("2020-01-01"), 100)
+      new Payment(0)
     )
   }
 
