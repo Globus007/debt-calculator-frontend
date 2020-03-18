@@ -58,7 +58,8 @@ export class CalculatorDataService {
       this.calculation = data
       // console.log(this.calculation)
     }, error => {
-      this.error = error      
+      this.error = error    
+      console.error(error);
     })
   }
 }
