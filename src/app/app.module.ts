@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CalculatorDataService } from './service/data/calculator-data.service';
 import { CalculationDateComponent } from './calculation-date/calculation-date.component';
 import { CalculationInfoComponent } from './calculation-info/calculation-info.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CalculationInfoComponent } from './calculation-info/calculation-info.co
     CalculatorComponent,
     CalculationDateComponent,
     CalculationInfoComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

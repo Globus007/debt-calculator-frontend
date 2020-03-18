@@ -6,6 +6,7 @@ import { Payment } from './Payment';
 import { CalculationRESTService } from '../rest/calculation-rest.service';
 import { TransferData } from './TransferData';
 import { Calculation } from './Calculation';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,8 @@ export class CalculatorDataService {
   totalBalance: number
   calculation: Calculation
 
+  error: HttpErrorResponse
+
   constructor(
     private restService: CalculationRESTService
   ) {
@@ -29,7 +32,7 @@ export class CalculatorDataService {
   }
 
   countTotalBalance() {
-    let totalBalance:number = 0
+    let totalBalance: number = 0
     this.bills.forEach(bill => {
       totalBalance += bill.amount
     });
@@ -50,10 +53,12 @@ export class CalculatorDataService {
       this.totalBalance
     )
 
-    console.log(transferData)
+    // console.log(transferData)
     this.restService.sendData(transferData).subscribe((data: Calculation) => {
       this.calculation = data
-      console.log(this.calculation)
+      // console.log(this.calculation)
+    }, error => {
+      this.error = error      
     })
   }
 }

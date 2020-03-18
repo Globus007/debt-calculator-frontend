@@ -40,4 +40,11 @@ export class CalculatorComponent implements OnInit {
     return false
   }
 
+  hasError() {
+    if (this.calculatorDataService.error) {
+      return true
+    }
+    return false
+  }
+
 }
