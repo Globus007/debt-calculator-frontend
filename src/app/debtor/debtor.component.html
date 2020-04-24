@@ -1,12 +1,26 @@
-<div id="debtor" class="">
+<div [formGroup]="debtorFormGroup" class="card-body">
 
-    <div class="form-group form-inline">
-        <label class="col-sm-1 justify-content-end" for="debtor-name">Название: </label>
-        <input class="form-control col-sm-4" type="text" name="debtor-name" size="25" [(ngModel)]="debtor.name"
-            placeholder="введите название должника">
+    <div class="form-group row">
 
-        <label class="col-sm-2 justify-content-end" for="debtor-props">Реквизиты: </label>
-        <input class="form-control col-sm-4" type="text" name="debtor-props" size="40" [(ngModel)]="debtor.props"
-            placeholder="введите реквизиты должника">
+        <div class="col-sm-5 mb-2">
+            <label class="justify-content-start" for="debtor-name">Название:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="debtor-name" 
+                formControlName="name"
+                placeholder="введите название должника">
+        </div>
+
+        <div class="col-sm-5 mb-2">
+            <label class="justify-content-start" for="debtor-props">Реквизиты:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="debtor-props" 
+                formControlName="props"
+                placeholder="введите реквизиты должника">
+        </div>
+
     </div>
 </div>

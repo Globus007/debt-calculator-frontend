@@ -8,8 +8,8 @@ export class TransferData {
         public debtor: Debtor,
         public contract: Contract,
         public bills: Array<Bill>,
-        public payments: Array<Payment>,
-        public calculationDate: Date,
+        public calculationDate?: Date,
+        public fine?: number,
         public totalBalance?: number
     ) { }
 }

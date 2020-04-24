@@ -1,16 +1,17 @@
-<div id="balance" class="">
+<div class="card-body">
 
-    <div class="form-group form-inline">
+    <div class="form-group row">
 
-        <div class="col-sm-3"></div>
-
-        <label class="col-sm-4 justify-content-end" for="balance-amount">Общий долг: </label>
+        <label class="col-sm-5 justify-content-end" for="balance-amount">Общий долг: </label>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">руб.</span>
             </div>
-            <input class="form-control col-sm-7" type="text" name="balance-amount" [ngModel]="countTotalBalance()"
-                (ngModelChange)="setTotalBalance($event)">
+            <input 
+                class="form-control col-sm-2" 
+                type="text" 
+                name="balance-amount" 
+                [formControl]="balance">
         </div>
 
     </div>

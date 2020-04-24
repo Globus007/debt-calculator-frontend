@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CalculatorDataService } from '../service/data/calculator-data.service';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-balance',
@@ -7,22 +8,18 @@ import { CalculatorDataService } from '../service/data/calculator-data.service';
   styleUrls: ['./balance.component.css']
 })
 export class BalanceComponent implements OnInit {
- 
+
+  @Input() calculatorFormGroup: FormGroup
+  balance: FormControl
   totalBalance = this.calculatorDataService.totalBalance
 
   constructor(
-    private calculatorDataService: CalculatorDataService
+    private calculatorDataService: CalculatorDataService,
   ) { }
 
   ngOnInit(): void {
-  }
-
-  countTotalBalance() {
-    return this.calculatorDataService.countTotalBalance()
-  }
-
-  setTotalBalance(balance: number) {
-    this.calculatorDataService.totalBalance = balance
+    this.balance = new FormControl()
+    this.calculatorFormGroup.addControl('totalBalance', this.balance)
   }
 
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CalculatorDataService } from '../service/data/calculator-data.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-contract',
@@ -8,13 +9,23 @@ import { CalculatorDataService } from '../service/data/calculator-data.service';
 })
 export class ContractComponent implements OnInit {
 
+  @Input() calculatorFormGroup: FormGroup
+  contractFormGroup: FormGroup
   contract = this.calculatorDataService.contract
 
   constructor(
-    private calculatorDataService: CalculatorDataService
+    private calculatorDataService: CalculatorDataService,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
+    this.contractFormGroup = this.fb.group({
+      number: [this.contract.number],
+      date: [this.contract.date],
+      fine: [this.contract.fine]
+    })
+
+    this.calculatorFormGroup.addControl('contract', this.contractFormGroup)
   }
 
 }

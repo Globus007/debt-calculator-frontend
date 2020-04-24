@@ -1,42 +1,37 @@
 <div class="calculator-body">
-<h2 class="container calculator-heading my-md-0 py-3 text-center">Калькулятор задолженности</h2>
-<div id="calculator" class="container calculator-input px-2 px-lg-5 py-3">
-    <form class="needs-validation" novalidate>
-        <h5 class="mt-3">Должник</h5>
-        <app-debtor></app-debtor>
+    <h2 class="container calculator-heading my-md-0 py-3 text-center">Калькулятор задолженности</h2>
+    <div id="calculator" class="container calculator-input px-2 px-lg-5 py-3">
 
-        <hr>
-        <h5 class="mt-1">Договор</h5>
-        <app-contract></app-contract>
+        <form [formGroup]="calculatorFormGroup" (ngSubmit)="onSubmit()">
+            <h5 class="mt-3">Должник</h5>
+            <app-debtor [calculatorFormGroup]="calculatorFormGroup"></app-debtor>
 
-        <hr>
-        <h5 class="mt-1">
-            ТТН
-            <!-- <button type="button" (click)="addBill()" class="">add</button> -->
-        </h5>
-        <div *ngFor="let bill of bills; let i=index">
-            <app-bill [index]="i"></app-bill>
-        </div>
+            <hr>
+            <h5 class="mt-1">Договор</h5>
+            <app-contract [calculatorFormGroup]="calculatorFormGroup"></app-contract>
 
-        <hr>
-        <h5 class="mt-1">
-            Оплаты
-            <button type="button" (click)="addPayment()" class="btn btn-outline-info btn-sm"> + </button>
-        </h5>
-        <div *ngFor="let payment of payments; let i = index">
-            <app-payment [index]="i"></app-payment>
-        </div>
+            <hr>
+            <h5 class="mt-1">
+                ТТН
+                <button type="button" (click)="addBill()" class="btn btn-outline-info btn-sm">+</button>
+            </h5>
+            <div formArrayName="bills" *ngFor="let bill of bills; let i=index">
+                <app-bill 
+                    [index]="i" 
+                    [bill]="bill"
+                    [billFormArray]="billFormArray">
+                </app-bill>
+            </div>
 
-        <hr>
-        <h5>Общий долг</h5>
-        <app-balance></app-balance>
+            <h5>Общий долг</h5>
+            <app-balance [calculatorFormGroup]="calculatorFormGroup"></app-balance>
 
-        <h5>Рассчитать на дату</h5>
-        <app-calculation-date></app-calculation-date>
+            <h5>Рассчитать на дату</h5>
+            <app-calculation-date [calculatorFormGroup]="calculatorFormGroup"></app-calculation-date>
 
-        <app-calculation-info *ngIf="hasCalculation()"></app-calculation-info> 
-        <app-error *ngIf="hasError()"></app-error> 
+            <app-calculation-info *ngIf="hasCalculation()"></app-calculation-info> 
+            <app-error *ngIf="hasError()"></app-error> 
+        </form>
 
-    </form>
-</div>
+    </div>
 </div>

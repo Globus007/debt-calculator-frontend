@@ -1,28 +1,39 @@
-<div id="contract" class="">
+<div [formGroup]="contractFormGroup" class="card-body">
 
-    <div class="form-group form-inline">
+    <div class="form-group row">
 
-        <label class="col-sm-1 justify-content-end" for="contract-number">Номер: </label>
-        <input class="form-control col-sm-1" type="text" name="contract-number" size="5" [(ngModel)]="contract.number">
-
-        <label class="col-sm-1 justify-content-end" for="contract-date">Дата: </label>
-        <input class="form-control col-sm-2" type="date" name="contract-date"
-            [ngModel]="contract.date | date:'yyyy-MM-dd'" (ngModelChange)="contract.date = $event">
-
-        <label class="col-sm-1 justify-content-end text-center" for="contract-pay-date">Дата оплаты: </label>
-        <input class="form-control col-sm-2" type="date" name="contract-pay-date"
-            [ngModel]="contract.paymentDate | date:'yyyy-MM-dd'" (ngModelChange)="contract.paymentDate = $event"
-            required>
-
-        <label class="col-sm-1 justify-content-end" for="contract-fine">Пеня: </label>
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">%</span>
-            </div>
-            <input class="form-control col-sm-4" type="text" name="contract-fine" maxlength=5 min=0 width="10"
-                [(ngModel)]="contract.fine" required>
+        <div class="col-sm-3 mb-2">
+            <label class="justify-content-start" for="contract-number">Номер: </label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="contract-number" 
+                formControlName="number"
+                placeholder="номер договора">
         </div>
+
+        <div class="col-sm-3 mb-2">
+            <label class="justify-content-start" for="contract-date">Дата: </label>
+            <input 
+                class="form-control" 
+                type="date" 
+                name="contract-date" 
+                formControlName="date">
+        </div>
+
+        <div class="col-sm-3 mb-2">
+            <label class="justify-content-start" for="contract-fine">Пеня: </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">%</span>
+                </div>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    name="contract-fine"
+                    formControlName="fine">
+            </div>
+        </div>
+
     </div>
-
-
 </div>

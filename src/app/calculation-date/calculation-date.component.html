@@ -1,13 +1,21 @@
-<div name="calculation-date" class="">
+<div>
 
     <div class="form-group form-inline">
 
-        <label class="col-sm-7 justify-content-end" for="calculator-date">Дата: </label>
-        <input class="form-control col-sm-2" type="date" name="calculation-date"
-            [ngModel]="calculationDate | date:'yyyy-MM-dd'" (ngModelChange)="setCalculationDate($event)">
+        <div class="col-sm-3 md-3 justify-content-end">
+            <label class="justify-content-start" for="calculator-date">Дата: </label>
+            <input 
+                class="form-control" 
+                type="date" 
+                name="calculation-date"
+                [formControl]=calculationDate>
+        </div>
 
-        <div class="col-sm-3 calculate-button-parent">
-            <input class="btn btn-warning" type="submit" (click)="makeCalculation()" value="Рассчитать">
+        <div class="col-sm-3 calculate-button-parent mt-4">
+            <input 
+                class="btn btn-warning" 
+                type="submit" 
+                value="Рассчитать">
         </div>
     </div>
 

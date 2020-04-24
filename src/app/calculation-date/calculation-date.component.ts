@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CalculatorDataService } from '../service/data/calculator-data.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-calculation-date',
@@ -8,20 +9,14 @@ import { CalculatorDataService } from '../service/data/calculator-data.service';
 })
 export class CalculationDateComponent implements OnInit {
 
-  calculationDate = this.calculatorDataService.calculationDate
+  @Input() calculatorFormGroup: FormGroup
+  calculationDate: FormControl
 
-  constructor(
-    private calculatorDataService: CalculatorDataService
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
+    this.calculationDate = new FormControl()
+    this.calculatorFormGroup.addControl('calculationDate', this.calculationDate)
   }
 
-  setCalculationDate(date: Date) {
-    this.calculatorDataService.calculationDate = date
-  }
-  
-  makeCalculation() {
-    this.calculatorDataService.makeCalculation()
-  }
 }

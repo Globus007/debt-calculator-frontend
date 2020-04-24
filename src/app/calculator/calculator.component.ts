@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalculatorDataService } from '../service/data/calculator-data.service';
-import { Payment } from "../service/data/Payment";
-import { Bill } from "../service/data/Bill";
+import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-calculator',
@@ -11,26 +10,29 @@ import { Bill } from "../service/data/Bill";
 
 export class CalculatorComponent implements OnInit {
 
+  calculatorFormGroup: FormGroup
+  billFormArray: FormArray
   bills = this.calculatorDataService.bills
-  payments = this.calculatorDataService.payments
 
   constructor(
-    private calculatorDataService: CalculatorDataService
+    private calculatorDataService: CalculatorDataService,
+    private fb: FormBuilder
   ) { }
 
-  addBill() {
-    this.calculatorDataService.bills.push(
-      new Bill(0)
-    )
-  }
-
-  addPayment() {
-    this.calculatorDataService.payments.push(
-      new Payment(0)
-    )
-  }
-
   ngOnInit(): void {
+    this.calculatorFormGroup = this.fb.group({
+      bills: this.fb.array([])
+    })
+
+    this.billFormArray = <FormArray>this.calculatorFormGroup.controls["bills"]
+  }
+
+  addBill() {
+    this.calculatorDataService.addBill()
+  }
+
+  onSubmit() {
+    this.calculatorDataService.makeCalculation(this.calculatorFormGroup.getRawValue())
   }
 
   hasCalculation() {

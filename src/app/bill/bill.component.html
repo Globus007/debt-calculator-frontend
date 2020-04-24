@@ -1,25 +1,67 @@
-<div id="bill" class="">
+<div [formGroup]="billFormGroup" class="card-body">
 
-        <div class="form-group form-inline">
+        <div class="form-group row">
 
-                <label class="col-sm-1 justify-content-end" for="bill-number">Номер: </label>
-                <input class="form-control col-sm-1" type="text" name="bill-number" size="5" [(ngModel)]="bill.number">
-
-                <label class="col-sm-1 justify-content-end" for="bill-date">Дата: </label>
-                <input class="form-control col-sm-2" type="date" name="bill-date"
-                        [ngModel]="bill.date | date:'yyyy-MM-dd'" (ngModelChange)="bill.date = $event">
-
-                <label class="col-sm-2 justify-content-end" for="bill-amount">Сумма: </label>
-                <div class="input-group">
-                        <div class="input-group-prepend">
-                                <span class="input-group-text">руб.</span>
-                        </div>
-                        <input class="form-control col-sm-10" type="text" name="bill-amount" size="10"
-                                [(ngModel)]="bill.amount">
+                <div class="col-sm-3 mb-2">
+                        <label class="justify-content-start" for="bill-number">Номер: </label>
+                        <input 
+                                class="form-control" 
+                                type="text" 
+                                name="bill-number" 
+                                formControlName="number"
+                                placeholder="номер ТТН">
                 </div>
 
-                <button *ngIf="displayDeleteButton()" type="button" (click)="deleteBill()">delete</button>
+                <div class="col-sm-3 mb-2">
+                        <label class="justify-content-start" for="bill-date">Дата: </label>
+                        <input 
+                                class="form-control" 
+                                type="date" 
+                                name="bill-date" 
+                                formControlName="date"> 
+                </div>
+
+                <div class="col-sm-3 mb-2">
+                        <label class="justify-content-start" for="bill-amount">Сумма: </label>
+                        <div class="input-group">
+                                <div class="input-group-prepend">
+                                        <span class="input-group-text">руб.</span>
+                                </div>
+                                <input 
+                                        class="form-control" 
+                                        type="text" 
+                                        name="bill-amount"
+                                        formControlName="amount">
+                        </div>
+                </div>
+
+                <div class="col-sm-3 mb-2">
+                        <label class="justify-content-start" for="bill-date">Дата Оплаты: </label>
+                        <input 
+                                class="form-control" 
+                                type="date" 
+                                name="bill-date" 
+                                formControlName="paymentDate"> 
+                </div>
+
+                <div class="col-sm-2 mb-2">
+                        <button *ngIf="displayDeleteButton()" type="button" (click)="deleteBill()">delete</button>
+                </div>
 
         </div>
+
+        <h5 class="mt-1">
+                Оплаты
+                <button type="button" (click)="addPayment()" class="btn btn-outline-info btn-sm"> + </button>
+        </h5>
+        <div formArrayName="payments" *ngFor="let payment of payments; let i=index">
+                <app-payment 
+                        [index]="i" 
+                        [payment]="payment" 
+                        [bill]="bill"
+                        [paymentFormArray]="paymentFormArray">
+                </app-payment>
+        </div>
+        <hr>
 
 </div>

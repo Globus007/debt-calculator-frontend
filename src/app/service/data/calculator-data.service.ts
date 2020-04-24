@@ -7,6 +7,7 @@ import { CalculationRESTService } from '../rest/calculation-rest.service';
 import { TransferData } from './TransferData';
 import { Calculation } from './Calculation';
 import { HttpErrorResponse } from '@angular/common/http';
+import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -14,52 +15,61 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 export class CalculatorDataService {
 
-  debtor: Debtor
-  contract: Contract
-  bills: Array<Bill> = [new Bill(0)]
-  payments: Array<Payment> = []
-  calculationDate: Date
+  debtor: Debtor = new Debtor()
+  contract: Contract = new Contract()
+  bills: Array<Bill> = []
   totalBalance: number
+  calculationDate: Date
+
   calculation: Calculation
 
   error: HttpErrorResponse
 
   constructor(
-    private restService: CalculationRESTService
+    private restService: CalculationRESTService,
   ) {
-    this.debtor = new Debtor()
-    this.contract = new Contract()
+    this.addBill();
+  }
+
+  deleteBill(index: number) {
+    this.bills.splice(index, 1)
+  }
+
+  addBill() {
+    let bill: Bill = new Bill()
+    bill.payments = []
+    this.bills.push(bill)
+  }
+
+  addPayment(billIndex: number) {
+    this.bills[billIndex].payments.push(new Payment())
+  }
+
+  deletePayment(bill: Bill, index: number) {
+    bill.payments.splice(index, 1)
   }
 
   countTotalBalance() {
     let totalBalance: number = 0
-    this.bills.forEach(bill => {
+    this.bills?.forEach(bill => {
       totalBalance += bill.amount
+      bill?.payments.forEach(payment => {
+        totalBalance -= payment.amount
+      });
     });
-    this.payments.forEach(payment => {
-      totalBalance -= payment.amount
-    })
     return totalBalance
   }
 
-  makeCalculation() {
+  makeCalculation(transferData: TransferData) {
 
-    let transferData = new TransferData(
-      this.debtor,
-      this.contract,
-      this.bills,
-      this.payments,
-      this.calculationDate,
-      this.totalBalance
-    )
+    transferData.fine = transferData.contract.fine
 
-    // console.log(transferData)
+    console.log(transferData)
     this.restService.sendData(transferData).subscribe((data: Calculation) => {
       this.calculation = data
       this.error = null
-      // console.log(this.calculation)
     }, error => {
-      this.error = error    
+      this.error = error
     })
   }
 }

@@ -1,22 +1,31 @@
-<div id="payment" class="">
+<div [formGroup]="paymentFormGroup" class="card-body">
 
-    <div class="form-group form-inline">
+    <div class="form-group row">
 
-        <div class="col-sm-2"></div>
-        <label class="col-sm-1 justify-content-end" for="payment-date">Дата: </label>
-        <input class="form-control col-sm-2" type="date" name="payment-date"
-            [ngModel]="payment.date | date:'yyyy-MM-dd'" (ngModelChange)="payment.date = $event">
-
-        <label class="col-sm-2 justify-content-end" for="payment-amount">Сумма: </label>
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">руб.</span>
-            </div>
-            <input class="form-control col-sm-10" type="text" name="payment-amount" size="10"
-                [(ngModel)]="payment.amount">
+        <div class="col-sm-3 mb-2">
+            <label class="justify-content-start" for="payment-date">Дата: </label>
+            <input 
+                class="form-control" 
+                type="date" 
+                name="payment-date" 
+                formControlName="date">
         </div>
 
-        <div class="col-sm-1">
+        <div class="col-sm-3 mb-2">
+            <label class="justify-content-start" for="payment-amount">Сумма: </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">руб.</span>
+                </div>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    name="payment-amount"
+                    formControlName="amount">
+            </div>
+        </div>
+
+        <div class="col-sm-1 mt-3">
             <button class="btn btn-info" type="button" (click)="deletePayment()"> - </button>
         </div>
 
