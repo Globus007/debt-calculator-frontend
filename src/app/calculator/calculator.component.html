@@ -15,13 +15,14 @@
                 ТТН
                 <button type="button" (click)="addBill()" class="btn btn-outline-info btn-sm">+</button>
             </h5>
-            <div formArrayName="bills" *ngFor="let bill of bills; let i=index">
+            <div class="card" formArrayName="bills" *ngFor="let bill of bills; let i=index">
                 <app-bill 
                     [index]="i" 
                     [bill]="bill"
                     [billFormArray]="billFormArray">
                 </app-bill>
             </div>
+            <hr>
 
             <h5>Общий долг</h5>
             <app-balance [calculatorFormGroup]="calculatorFormGroup"></app-balance>
