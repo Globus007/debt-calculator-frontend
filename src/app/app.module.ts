@@ -16,6 +16,10 @@ import { CalculatorDataService } from './service/data/calculator-data.service';
 import { CalculationDateComponent } from './calculation-date/calculation-date.component';
 import { CalculationInfoComponent } from './calculation-info/calculation-info.component';
 import { ErrorComponent } from './error/error.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +39,10 @@ import { ErrorComponent } from './error/error.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatStepperModule,
+    MatIconModule
   ],
   providers: [CalculatorDataService],
   bootstrap: [AppComponent]
