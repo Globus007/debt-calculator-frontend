@@ -1,12 +1,12 @@
-<div class="calculator-body">
-    <h2 class="container calculator-heading my-md-0 py-3 text-center">Калькулятор задолженности</h2>
+<div class="calculator-body container">
+    <h2 class="container calculator-heading my-md-0 py-5 text-center">Калькулятор задолженности</h2>
 
-    <div id="calculator" class="container calculator-input px-2 px-lg-5 py-3">
+    <div id="calculator" class="calculator-input">
 
         <form [formGroup]="calculatorFormGroup" (ngSubmit)="onSubmit()">
 
         <mat-horizontal-stepper labelPosition="bottom">
-            <mat-step>
+            <mat-step class="step-header">
                 <ng-template matStepLabel>Должник</ng-template>
                 <div class="card m-3">
                     <h5 class="card-header">Введите информацию о должнике</h5>

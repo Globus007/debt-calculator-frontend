@@ -3,6 +3,17 @@
     <div class="form-group row">
 
         <div class="col-sm-5 mb-2">
+            <mat-form-field style="width: 100%;">
+                <mat-label>Название:</mat-label>
+                <input 
+                    matInput
+                    formControlName="name"
+                    placeholder="введите название должника">
+            </mat-form-field>
+        </div>
+
+<!-- 
+        <div class="col-sm-5 mb-2">
             <label class="justify-content-start" for="debtor-name">Название:</label>
             <input 
                 class="form-control" 
@@ -10,7 +21,7 @@
                 name="debtor-name" 
                 formControlName="name"
                 placeholder="введите название должника">
-        </div>
+        </div> -->
 
         <div class="col-sm-5 mb-2">
             <label class="justify-content-start" for="debtor-props">Реквизиты:</label>

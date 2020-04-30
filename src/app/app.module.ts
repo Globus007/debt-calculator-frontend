@@ -19,6 +19,7 @@ import { ErrorComponent } from './error/error.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatStepperModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule
   ],
   providers: [CalculatorDataService],
   bootstrap: [AppComponent]
