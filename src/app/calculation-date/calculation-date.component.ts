@@ -15,7 +15,7 @@ export class CalculationDateComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.calculationDate = new FormControl()
+    this.calculationDate = new FormControl(new Date())
     this.calculatorFormGroup.addControl('calculationDate', this.calculationDate)
   }
 
