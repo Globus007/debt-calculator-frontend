@@ -1,37 +1,31 @@
-<div [formGroup]="debtorFormGroup" class="card-body">
+<h5 class="heading mt-5 mb-5">Введите информацию о должнике</h5>
 
-    <div class="form-group row">
+<div [formGroup]="debtorFormGroup" class="row justify-content-md-center">
 
-        <div class="col-sm-5 mb-2">
-            <mat-form-field style="width: 100%;">
-                <mat-label>Название:</mat-label>
-                <input 
-                    matInput
-                    formControlName="name"
-                    placeholder="введите название должника">
-            </mat-form-field>
-        </div>
-
-<!-- 
-        <div class="col-sm-5 mb-2">
-            <label class="justify-content-start" for="debtor-name">Название:</label>
+    <div class="col-sm-6 mb-2">
+        <mat-form-field class="full-width">
+            <mat-label>Название:</mat-label>
             <input 
-                class="form-control" 
-                type="text" 
-                name="debtor-name" 
-                formControlName="name"
+                matInput
+                formControlName="name"                    
                 placeholder="введите название должника">
-        </div> -->
+        </mat-form-field>
+    </div>
 
-        <div class="col-sm-5 mb-2">
-            <label class="justify-content-start" for="debtor-props">Реквизиты:</label>
+     <div class="col-sm-6 mb-2">
+        <mat-form-field class="full-width">
+            <mat-label>Реквизиты:</mat-label>
             <input 
-                class="form-control" 
-                type="text" 
-                name="debtor-props" 
+                matInput
                 formControlName="props"
                 placeholder="введите реквизиты должника">
-        </div>
+        </mat-form-field>
+    </div>
+    
+</div>
 
+<div class="row justify-content-md-center">
+    <div class="col-sm-3 calculate-button-parent mt-4">
+        <button class="btn btn-primary btn-next" mat-button matStepperNext>Далее</button>
     </div>
 </div>

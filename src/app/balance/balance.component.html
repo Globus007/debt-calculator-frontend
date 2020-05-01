@@ -1,19 +1,21 @@
-<div class="card-body">
+<h5 class="heading mt-5 mb-5">Общий долг</h5>
 
-    <div class="form-group row">
+<div class="row justify-content-md-center">
 
-        <label class="col-sm-5 justify-content-end" for="balance-amount">Общий долг: </label>
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">руб.</span>
-            </div>
+    <div class="col-sm-3">
+        <mat-form-field class="full-width">
+            <mat-label>Общий долг:</mat-label>
             <input 
-                class="form-control col-sm-2" 
-                type="text" 
-                name="balance-amount" 
+                matInput
                 [formControl]="balance">
-        </div>
-
+            <span matSuffix>руб.</span>
+        </mat-form-field>
     </div>
 
+</div>
+
+<div class="row justify-content-md-center">
+    <div class="col-sm-3 calculate-button-parent mt-4">
+        <button class="btn btn-primary btn-next" mat-button matStepperNext>Далее</button>
+    </div>
 </div>

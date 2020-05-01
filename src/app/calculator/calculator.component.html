@@ -8,26 +8,19 @@
         <mat-horizontal-stepper labelPosition="bottom">
             <mat-step class="step-header">
                 <ng-template matStepLabel>Должник</ng-template>
-                <div class="card m-3">
-                    <h5 class="card-header">Введите информацию о должнике</h5>
-                    <app-debtor [calculatorFormGroup]="calculatorFormGroup"></app-debtor>
-                </div>
+                <app-debtor [calculatorFormGroup]="calculatorFormGroup"></app-debtor>
             </mat-step>
 
             <mat-step>
                 <ng-template matStepLabel>Договор</ng-template>
-                <div class="card m-3">
-                    <h5 class="card-header">Введите параметры договора</h5>
-                    <app-contract [calculatorFormGroup]="calculatorFormGroup"></app-contract>
-                </div>
+                <app-contract [calculatorFormGroup]="calculatorFormGroup"></app-contract>
             </mat-step>
 
             <mat-step>
                 <ng-template matStepLabel>Счета</ng-template>
-                <div class="card m-3">
-                    <h5 class="card-header">
+                    <h5 class="heading mt-5">
                         Введите информацию о счетах
-                        <button type="button" (click)="addBill()" class="btn btn-outline-info btn-sm">+</button>
+                        <button type="button" (click)="addBill()" class="btn btn-outline-info btn-sm">Добавить счёт</button>
                     </h5>
                     <div class="mb-2" formArrayName="bills" *ngFor="let bill of bills; let i=index">
                         <app-bill 
@@ -36,66 +29,24 @@
                             [billFormArray]="billFormArray">
                         </app-bill>
                     </div>
-                </div>
             </mat-step>
 
             <mat-step>
                 <ng-template matStepLabel>Общий долг</ng-template>
-                <div class="card m-3">
-                    <h5 class="card-header">Общий долг</h5>
-                    <app-balance [calculatorFormGroup]="calculatorFormGroup"></app-balance>
-                </div>
+                <app-balance [calculatorFormGroup]="calculatorFormGroup"></app-balance>
             </mat-step>
 
             <mat-step>
                 <ng-template matStepLabel>Рассчет</ng-template>
-                <div class="card m-3">
-                    <h5 class="card-header">Рассчитать на дату</h5>
-                    <app-calculation-date [calculatorFormGroup]="calculatorFormGroup"></app-calculation-date>
-                </div>
+                <app-calculation-date [calculatorFormGroup]="calculatorFormGroup"></app-calculation-date>
             </mat-step>
 
-
-            <!-- <div class="card m-3">
-                <h5 class="card-header">Должник</h5>
-                <app-debtor [calculatorFormGroup]="calculatorFormGroup"></app-debtor>
-            </div> -->
-
-            <!-- <div class="card m-3">
-                <h5 class="card-header">Договор</h5>
-                <app-contract [calculatorFormGroup]="calculatorFormGroup"></app-contract>
-            </div> -->
-            
-            <!-- <div class="card m-3">
-                <h5 class="card-header">
-                    Счета
-                    <button type="button" (click)="addBill()" class="btn btn-outline-info btn-sm">+</button>
-                </h5>
-                <div class="mb-2" formArrayName="bills" *ngFor="let bill of bills; let i=index">
-                    <app-bill 
-                        [index]="i" 
-                        [bill]="bill"
-                        [billFormArray]="billFormArray">
-                    </app-bill>
-                </div>
-            </div> -->
-
-            <!-- <div class="card m-3">
-                <h5 class="card-header">Общий долг</h5>
-                <app-balance [calculatorFormGroup]="calculatorFormGroup"></app-balance>
-            </div> -->
-
-            <!-- <div class="card m-3">
-                <h5 class="card-header">Рассчитать на дату</h5>
-                <app-calculation-date [calculatorFormGroup]="calculatorFormGroup"></app-calculation-date>
-            </div> -->
-
         </mat-horizontal-stepper>
-            <app-calculation-info *ngIf="hasCalculation()"></app-calculation-info> 
-            <app-error *ngIf="hasError()"></app-error> 
+
+        <app-calculation-info *ngIf="hasCalculation()"></app-calculation-info> 
+        <app-error *ngIf="hasError()"></app-error> 
 
 
-</form>
-
+        </form>
     </div>
 </div>

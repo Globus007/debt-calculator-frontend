@@ -3,30 +3,31 @@
     <div class="form-group row mb-n4">
 
         <div class="col-sm-3 mb-2">
-            <label class="justify-content-start" for="payment-date">Дата: </label>
-            <input 
-                class="form-control" 
-                type="date" 
-                name="payment-date" 
-                formControlName="date">
+            <mat-form-field class="full-width">
+                <mat-label>Дата:</mat-label>
+                <input 
+                    matInput
+                    [matDatepicker]="datePicker"
+                    formControlName="date">
+                <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker></mat-datepicker>
+            </mat-form-field>
         </div>
 
         <div class="col-sm-3 mb-2">
-            <label class="justify-content-start" for="payment-amount">Сумма: </label>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">руб.</span>
-                </div>
+            <mat-form-field class="full-width">
+                <mat-label>Сумма:</mat-label>
                 <input 
-                    class="form-control" 
-                    type="text" 
-                    name="payment-amount"
+                    matInput
                     formControlName="amount">
-            </div>
+                <span matSuffix>руб.</span>
+            </mat-form-field>
         </div>
 
-        <div class="col-sm-3 mb-2" style="display: flex; align-items: flex-end;">
-            <button class="btn btn-info" (click)="deletePayment()">Удалить Оплату</button>
+        <div class="col-sm-3 mb-4 btn-vertical-center">
+            <button class="btn btn-outline-info" (click)="deletePayment()">
+                <span class="material-icons">delete_outline</span>
+            </button>
         </div>
 
     </div>

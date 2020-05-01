@@ -1,69 +1,71 @@
 .calculator-input {
-    /* background: #F2F2F2; */
-    border-radius: 32px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    outline: 1px solid #f4f4f5;
 }
 
-.calculator-heading {
-    /* background: rgba(52, 182, 204, 0.67); */
-    /* color: #fff; */
-}
-
-.calculator-body {
-    /* height: 100vh; */
-    /* background: url(/assets/img/bck.jpg)no-repeat; */
-    /* background-size: cover; */
-}
-
-/deep/ .mat-horizontal-stepper-header-container {
+::ng-deep .mat-horizontal-stepper-header-container {
     border-bottom: 1px solid #f2f2f2;
     background: #fcfcfc;
     border-radius: 30px 30px 0 0;
 }
 
-/deep/ .mat-horizontal-stepper-header:not(:last-child)::after {
+::ng-deep .mat-horizontal-stepper-header:not(:last-child)::after {
     right: -6px !important;
 }
 
-/deep/ .mat-horizontal-stepper-header:not(:first-child)::before {
+::ng-deep .mat-horizontal-stepper-header:not(:first-child)::before {
     left: -6px !important;
 }
 
-/deep/ .mat-horizontal-stepper-header:not(:first-child)::before {
+::ng-deep .mat-step-header {
+    background-color: inherit !important;
+}
+
+::ng-deep .mat-step-icon-state-edit {
+    background-color: inherit !important;
+}
+
+::ng-deep .mat-step-header:hover {
+    background-color: inherit !important;
+}
+
+::ng-deep .mat-horizontal-stepper-header:not(:first-child)::before {
     top: 53px !important;
     color: #c8c8c8;
 }
 
-/deep/ .mat-horizontal-stepper-header:not(:last-child)::after {
+::ng-deep .mat-horizontal-stepper-header:not(:last-child)::after {
     top: 53px !important;
     color: #c8c8c8;
 }
 
-/deep/ .mat-stepper-horizontal-line {
+::ng-deep .mat-stepper-horizontal-line {
     top: 53px !important;
     color: #c8c8c8;
 }
 
-/deep/ .mat-step-icon-selected {
+::ng-deep .mat-step-icon-selected {
+    background-color: inherit !important;
     color: #7ed321 !important;
     border: 2px solid #7ed321 !important;
     box-shadow: 0 0 0px 3px #7ed321;
 }
 
-/deep/ .mat-step-label {
+::ng-deep .mat-step-label {
     color: #c8c8c8 !important;
     font-weight: 300;
 }
 
-/deep/ .mat-step-label-selected {
+::ng-deep .mat-step-label-selected {
     color: #7ed321 !important;
     font-weight: normal;
 }
 
-/deep/ div.mat-step-icon {
-    color: #c8c8c8;
+::ng-deep div.mat-step-icon {
+    color: #c8c8c8 !important;
     width: 53px;
     height: 53px;
+    background-color: inherit !important;
     /* border: 2px solid #7ed321; */
     border: 2px solid #c8c8c8;
     /* background: white url(../icons/Fund_your_account.svg) no-repeat 50% 50%;

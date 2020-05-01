@@ -123,5 +123,10 @@
       }
     }
   },
-  "defaultProject": "debt-calculator-frontend"
+  "defaultProject": "debt-calculator-frontend",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

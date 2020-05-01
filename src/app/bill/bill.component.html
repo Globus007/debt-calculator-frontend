@@ -1,66 +1,77 @@
-<div [formGroup]="billFormGroup" class="card-body mb-2">
+<div [formGroup]="billFormGroup" class="mb-2">
 
-        <div class="form-group row">
+    <div class="form-group row">
 
-                <div class="col-sm-3 mb-2">
-                        <label class="justify-content-start" for="bill-number">Номер: </label>
-                        <input 
-                                class="form-control" 
-                                type="text" 
-                                name="bill-number" 
-                                formControlName="number"
-                                placeholder="номер ТТН">
-                </div>
-
-                <div class="col-sm-3 mb-2">
-                        <label class="justify-content-start" for="bill-date">Дата: </label>
-                        <input 
-                                class="form-control" 
-                                type="date" 
-                                name="bill-date" 
-                                formControlName="date"> 
-                </div>
-
-                <div class="col-sm-3 mb-2">
-                        <label class="justify-content-start" for="bill-amount">Сумма: </label>
-                        <div class="input-group">
-                                <div class="input-group-prepend">
-                                        <span class="input-group-text">руб.</span>
-                                </div>
-                                <input 
-                                        class="form-control" 
-                                        type="text" 
-                                        name="bill-amount"
-                                        formControlName="amount">
-                        </div>
-                </div>
-
-                <div class="col-sm-3 mb-2">
-                        <label class="justify-content-start" for="bill-date">Дата Оплаты: </label>
-                        <input 
-                                class="form-control" 
-                                type="date" 
-                                name="bill-date" 
-                                formControlName="paymentDate"> 
-                </div>
-
-                <div class="col-sm-2 mb-2">
-                        <button *ngIf="displayDeleteButton()" class="btn btn-info btn-sm" (click)="deleteBill()">Удалить ТТН</button>
-                </div>
-
+        <div class="col-sm-2 mb-2">
+            <mat-form-field class="full-width">
+                <mat-label>Номер:</mat-label>
+                <input 
+                    matInput
+                    formControlName="number"
+                    placeholder="номер счёта">
+            </mat-form-field>
         </div>
 
-        <h5>
-                Оплаты
-                <button type="button" (click)="addPayment()" class="btn btn-outline-info btn-sm"> + </button>
-        </h5>
-        <div formArrayName="payments" *ngFor="let payment of payments; let i=index">
-                <app-payment 
-                        [index]="i" 
-                        [payment]="payment" 
-                        [bill]="bill"
-                        [paymentFormArray]="paymentFormArray">
-                </app-payment>
+        <div class="col-sm-3 mb-2">
+            <mat-form-field class="full-width">
+                <mat-label>Дата:</mat-label>
+                <input 
+                    matInput
+                    [matDatepicker]="datePicker"
+                    formControlName="date">
+                <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker></mat-datepicker>
+            </mat-form-field>
         </div>
 
+        <div class="col-sm-3 mb-2">
+            <mat-form-field class="full-width">
+                <mat-label>Сумма:</mat-label>
+                <input 
+                    matInput
+                    formControlName="amount">
+                    <span matSuffix>руб.</span>
+            </mat-form-field>
+        </div>
+
+        <div class="col-sm-3 mb-2">
+            <mat-form-field class="full-width">
+                <mat-label>Дата оплаты:</mat-label>
+                <input 
+                    matInput
+                    [matDatepicker]="paymentDatepicker"
+                    formControlName="paymentDate">
+                <mat-datepicker-toggle matSuffix [for]="paymentDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #paymentDatepicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="col-sm-1 mb-4 btn-vertical-center">
+            <button 
+                *ngIf="hasMoreThanOneElement()" 
+                class="btn btn-outline-info btn-sm" 
+                (click)="deleteBill()">
+                    <span class="material-icons">delete_outline</span>
+            </button>
+        </div>
+
+    </div>
+
+    <h5>
+        Оплаты
+        <button type="button" (click)="addPayment()" class="btn btn-outline-info btn-sm">Добавить оплату</button>
+    </h5>
+    <div formArrayName="payments" *ngFor="let payment of payments; let i=index">
+        <app-payment [index]="i" [payment]="payment" [bill]="bill" [paymentFormArray]="paymentFormArray">
+        </app-payment>
+    </div>
+
+    <mat-divider *ngIf="!isLastElement()" class="mt-4 mb-4"></mat-divider>
+
+</div>
+
+<div class="row justify-content-md-center">
+    <div class="col-sm-3 calculate-button-parent mt-4">
+        <button class="btn btn-primary btn-next" mat-button matStepperNext>Далее</button>
+    </div>
 </div>

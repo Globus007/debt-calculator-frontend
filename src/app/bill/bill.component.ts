@@ -48,8 +48,15 @@ export class BillComponent implements OnInit {
     this.billFormArray.removeAt(this.index)
   }
 
-  displayDeleteButton() {
+  hasMoreThanOneElement() {
     if (this.calculatorDataService.bills.length > 1) {
+      return true
+    }
+    return false
+  }
+
+  isLastElement() {
+    if (this.index == (this.billFormArray.length-1)) {
       return true
     }
     return false

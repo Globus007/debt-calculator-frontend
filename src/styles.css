@@ -1,1 +1,26 @@
-@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css';
+
+body {
+    background-color: #fbfbfb;
+}
+
+.heading {
+    text-align: center;
+    color: #4e4e4e;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.btn-vertical-center {
+    display: flex; 
+    align-items: flex-end;
+}
+
+.btn-next {
+    width: 100%;
+    height: 50px;
+    background-color: #72bcfe;
+    border-color: #72bcfe;
+}

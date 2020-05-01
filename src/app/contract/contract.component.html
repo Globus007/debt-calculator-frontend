@@ -1,39 +1,46 @@
+<h5 class="heading mt-5">Введите параметры договора</h5>
+
 <div [formGroup]="contractFormGroup" class="card-body">
 
     <div class="form-group row">
 
-        <div class="col-sm-3 mb-2">
-            <label class="justify-content-start" for="contract-number">Номер: </label>
-            <input 
-                class="form-control" 
-                type="text" 
-                name="contract-number" 
-                formControlName="number"
-                placeholder="номер договора">
-        </div>
-
-        <div class="col-sm-3 mb-2">
-            <label class="justify-content-start" for="contract-date">Дата: </label>
-            <input 
-                class="form-control" 
-                type="date" 
-                name="contract-date" 
-                formControlName="date">
-        </div>
-
-        <div class="col-sm-3 mb-2">
-            <label class="justify-content-start" for="contract-fine">Пеня: </label>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">%</span>
-                </div>
+        <div class="col-sm-4 mb-2">
+            <mat-form-field class="full-width">
+                <mat-label>Номер:</mat-label>
                 <input 
-                    class="form-control" 
-                    type="text" 
-                    name="contract-fine"
-                    formControlName="fine">
-            </div>
+                    matInput
+                    formControlName="number"
+                    placeholder="Введите номер договора">
+            </mat-form-field>
         </div>
 
+        <div class="col-sm-4 mb-2">
+            <mat-form-field class="full-width">
+                <mat-label>Дата:</mat-label>
+                <input 
+                    matInput
+                    [matDatepicker]="picker"
+                    formControlName="date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="col-sm-4 mb-2">
+            <mat-form-field class="full-width">
+                <mat-label>Пеня:</mat-label>
+                <input 
+                    matInput
+                    formControlName="fine">
+                <span matSuffix>%</span>
+            </mat-form-field>
+        </div>
+
+    </div>
+</div>
+
+<div class="row justify-content-md-center">
+    <div class="col-sm-3 calculate-button-parent mt-4">
+        <button class="btn btn-primary btn-next" mat-button matStepperNext>Далее</button>
     </div>
 </div>

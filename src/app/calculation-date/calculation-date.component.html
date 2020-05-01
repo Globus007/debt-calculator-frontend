@@ -1,22 +1,28 @@
-<div>
+<h5 class="heading mt-5 mb-5">Рассчитать на дату</h5>
 
-    <div class="form-group form-inline">
+<div class="row justify-content-md-center">
 
-        <div class="col-sm-3 md-3 justify-content-end">
-            <label class="justify-content-start" for="calculator-date">Дата: </label>
-            <input 
-                class="form-control" 
-                type="date" 
-                name="calculation-date"
-                [formControl]=calculationDate>
-        </div>
+    <div class="col-sm-3">
+        <mat-form-field class="full-width">                
+            <mat-label>Дата расчёта:</mat-label>
+            <input
+                matInput
+                [matDatepicker]="picker"
+                [formControl]=calculationDate>                
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
 
-        <div class="col-sm-3 calculate-button-parent mt-4">
-            <input 
-                class="btn btn-warning" 
-                type="submit" 
-                value="Рассчитать">
-        </div>
+</div>
+
+<div class="row justify-content-md-center">
+
+    <div class="col-sm-3 calculate-button-parent mt-4">
+        <input 
+            class="btn btn-primary btn-next" 
+            type="submit" 
+            value="Рассчитать">
     </div>
 
 </div>
