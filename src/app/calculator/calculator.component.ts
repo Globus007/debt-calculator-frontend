@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CalculatorDataService } from '../service/data/calculator-data.service';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
-  styleUrls: ['./calculator.component.css']
+  styleUrls: ['./calculator.component.css'],
+  providers: [{
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true}
+  }]
 })
 
 export class CalculatorComponent implements OnInit {

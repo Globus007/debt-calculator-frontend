@@ -16,7 +16,7 @@
                 <app-contract [calculatorFormGroup]="calculatorFormGroup"></app-contract>
             </mat-step>
 
-            <mat-step>
+            <mat-step [stepControl]="calculatorFormGroup" errorMessage="Address is required.">
                 <ng-template matStepLabel>Счета</ng-template>
                     <h5 class="heading mt-5">
                         Введите информацию о счетах
@@ -28,6 +28,11 @@
                             [bill]="bill"
                             [billFormArray]="billFormArray">
                         </app-bill>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <div class="col-sm-3 calculate-button-parent mt-4">
+                            <button type="button" class="btn btn-primary btn-next" mat-button matStepperNext>Далее</button>
+                        </div>
                     </div>
             </mat-step>
 

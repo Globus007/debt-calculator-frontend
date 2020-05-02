@@ -1,12 +1,13 @@
 <div [formGroup]="billFormGroup" class="mb-2">
 
-    <div class="form-group row">
+    <div class="row">
 
         <div class="col-sm-2 mb-2">
             <mat-form-field class="full-width">
                 <mat-label>Номер:</mat-label>
                 <input 
                     matInput
+                    name="number"
                     formControlName="number"
                     placeholder="номер счёта">
             </mat-form-field>
@@ -21,6 +22,9 @@
                     formControlName="date">
                 <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
                 <mat-datepicker #datePicker></mat-datepicker>
+                <mat-error *ngIf="billFormGroup.controls.date.hasError('required')">
+                    Дата обязательна для заполнения
+                </mat-error>
             </mat-form-field>
         </div>
 
@@ -31,6 +35,9 @@
                     matInput
                     formControlName="amount">
                     <span matSuffix>руб.</span>
+                    <mat-error *ngIf="billFormGroup.controls.amount.hasError('required')">
+                        <strong>Сумма</strong> обязательна для заполнения
+                    </mat-error>
             </mat-form-field>
         </div>
 
@@ -43,6 +50,9 @@
                     formControlName="paymentDate">
                 <mat-datepicker-toggle matSuffix [for]="paymentDatepicker"></mat-datepicker-toggle>
                 <mat-datepicker #paymentDatepicker></mat-datepicker>
+                <mat-error *ngIf="billFormGroup.controls.paymentDate.hasError('required')">
+                    <strong>Дата оплаты</strong> обязательна для заполнения
+                </mat-error>
             </mat-form-field>
         </div>
 
@@ -68,10 +78,4 @@
 
     <mat-divider *ngIf="!isLastElement()" class="mt-4 mb-4"></mat-divider>
 
-</div>
-
-<div class="row justify-content-md-center">
-    <div class="col-sm-3 calculate-button-parent mt-4">
-        <button class="btn btn-primary btn-next" mat-button matStepperNext>Далее</button>
-    </div>
 </div>

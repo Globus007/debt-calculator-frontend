@@ -23,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { MatDividerModule } from '@angular/material/divider';
     CalculatorComponent,
     CalculationDateComponent,
     CalculationInfoComponent,
-    ErrorComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +51,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDividerModule
+    MatDividerModule,
+    MatButtonModule
   ],
   providers: [CalculatorDataService],
   bootstrap: [AppComponent]

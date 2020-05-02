@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CalculatorDataService } from '../service/data/calculator-data.service';
-import { FormGroup, FormArray, FormBuilder } from '@angular/forms';
+import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Bill } from '../service/data/Bill';
 import { Payment } from '../service/data/Payment';
 
@@ -17,6 +17,7 @@ export class BillComponent implements OnInit {
   billFormGroup: FormGroup
   paymentFormArray: FormArray
   payments: Array<Payment>
+  bills = this.calculatorDataService.bills
 
   constructor(
     private calculatorDataService: CalculatorDataService,
@@ -28,9 +29,9 @@ export class BillComponent implements OnInit {
 
     this.billFormGroup = this.fb.group({
       number: [this.bill.number],
-      date: [this.bill.date],
-      amount: [this.bill.amount],
-      paymentDate: [this.bill.paymentDate],
+      date: [this.bill.date, Validators.required],
+      amount: [this.bill.amount, Validators.required],
+      paymentDate: [this.bill.paymentDate, Validators.required],
       payments: this.fb.array([])
     })
 
@@ -56,7 +57,7 @@ export class BillComponent implements OnInit {
   }
 
   isLastElement() {
-    if (this.index == (this.billFormArray.length-1)) {
+    if (this.index == (this.bills.length-1)) {
       return true
     }
     return false
