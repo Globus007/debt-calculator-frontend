@@ -6,19 +6,20 @@
         <form [formGroup]="calculatorFormGroup" (ngSubmit)="onSubmit()">
 
         <mat-horizontal-stepper labelPosition="bottom">
-            <mat-step class="step-header">
-                <ng-template matStepLabel>Должник</ng-template>
+            <mat-step state="account_circle" label="Должник">
                 <app-debtor [calculatorFormGroup]="calculatorFormGroup"></app-debtor>
             </mat-step>
 
-            <mat-step>
-                <ng-template matStepLabel>Договор</ng-template>
+            <mat-step state="account_balance_wallet" label="Договор">
                 <app-contract [calculatorFormGroup]="calculatorFormGroup"></app-contract>
             </mat-step>
 
-            <mat-step [stepControl]="calculatorFormGroup" errorMessage="Address is required.">
-                <ng-template matStepLabel>Счета</ng-template>
-                    <h5 class="heading mt-5">
+            <mat-step 
+                state="all_inbox" 
+                label="Счета" 
+                [stepControl]="calculatorFormGroup" 
+                errorMessage="Заполните поля!">
+                    <h5 class="heading mt-5 mb-5">
                         Введите информацию о счетах
                         <button type="button" (click)="addBill()" class="btn btn-outline-info btn-sm">Добавить счёт</button>
                     </h5>
@@ -36,13 +37,11 @@
                     </div>
             </mat-step>
 
-            <mat-step>
-                <ng-template matStepLabel>Общий долг</ng-template>
+            <mat-step state="attach_money" label="Общий долг">
                 <app-balance [calculatorFormGroup]="calculatorFormGroup"></app-balance>
             </mat-step>
 
-            <mat-step>
-                <ng-template matStepLabel>Рассчет</ng-template>
+            <mat-step state="money" label="Рассчет">
                 <app-calculation-date [calculatorFormGroup]="calculatorFormGroup"></app-calculation-date>
             </mat-step>
 

@@ -8,7 +8,7 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.css'],
   providers: [{
-    provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true}
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true, displayDefaultIndicatorType: false}
   }]
 })
 

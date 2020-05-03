@@ -1,16 +1,17 @@
-<h5 class="heading mt-5">Введите параметры договора</h5>
+<h5 class="heading mt-5 mb-5">Введите параметры договора</h5>
 
-<div [formGroup]="contractFormGroup" class="card-body">
+<div [formGroup]="contractFormGroup">
 
-    <div class="form-group row">
+    <div class="row">
 
         <div class="col-sm-4 mb-2">
             <mat-form-field class="full-width">
                 <mat-label>Номер:</mat-label>
                 <input 
                     matInput
+                    name="number"
                     formControlName="number"
-                    placeholder="Введите номер договора">
+                    placeholder="номер договора">
             </mat-form-field>
         </div>
 
@@ -19,6 +20,7 @@
                 <mat-label>Дата:</mat-label>
                 <input 
                     matInput
+                    name="date"
                     [matDatepicker]="picker"
                     formControlName="date">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -31,6 +33,7 @@
                 <mat-label>Пеня:</mat-label>
                 <input 
                     matInput
+                    name="fine"
                     formControlName="fine">
                 <span matSuffix>%</span>
             </mat-form-field>
