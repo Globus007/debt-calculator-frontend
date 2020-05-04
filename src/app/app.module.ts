@@ -23,7 +23,22 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
+import * as _moment from 'moment';
+
+export const RU_LOCALE_FORMAT = {
+    parse: {
+      dateInput: 'DD.MM.YYYY',
+    },
+    display: {
+      dateInput: 'DD.MM.YYYY',
+      monthYearLabel: 'MMM YYYY',
+      dateA11yLabel: 'LL',
+      monthYearA11yLabel: 'MMMM YYYY',
+    },
+  };
 
 @NgModule({
   declarations: [
@@ -53,7 +68,17 @@ import { MatButtonModule } from '@angular/material/button';
     MatDividerModule,
     MatButtonModule
   ],
-  providers: [CalculatorDataService],
+  providers: [
+    CalculatorDataService,
+    {
+        provide: DateAdapter,
+        useClass: MomentDateAdapter,
+        deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+    },
+    {   provide: MAT_DATE_FORMATS, 
+        useValue: RU_LOCALE_FORMAT
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
