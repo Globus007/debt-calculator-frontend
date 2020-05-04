@@ -11,6 +11,10 @@
                 [formControl]=calculationDate>                
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="calculatorFormGroup.controls.calculationDate.hasError('matDatepickerParse')">
+                "{{calculatorFormGroup.controls.calculationDate.getError('matDatepickerParse').text}}"
+                неверная дата!
+            </mat-error>
         </mat-form-field>
     </div>
 

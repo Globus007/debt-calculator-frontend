@@ -2,11 +2,11 @@
 
 @include mat-core();
 
-$candy-app-primary: mat-palette($mat-green);
-$candy-app-accent:  mat-palette($mat-green, A400, A700, A200);
-$candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
+$calculator-app-primary: mat-palette($mat-green);
+$calculator-app-accent:  mat-palette($mat-green, A400, A700, A200);
+$calculator-app-theme:   mat-light-theme($calculator-app-primary, $calculator-app-accent);
 
-@mixin mat-stepper-theme($candy-app-theme) {
+@mixin mat-stepper-theme($calculator-app-theme) {
     .mat-horizontal-stepper-header:not(:first-child)::before {
         top: 53px !important;
         color: #c8c8c8;
@@ -91,4 +91,4 @@ $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
     }
 }
 
-@include angular-material-theme($candy-app-theme);
+@include angular-material-theme($calculator-app-theme);

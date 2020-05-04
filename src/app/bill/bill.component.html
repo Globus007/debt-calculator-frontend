@@ -23,7 +23,11 @@
                 <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
                 <mat-datepicker #datePicker></mat-datepicker>
                 <mat-error *ngIf="billFormGroup.controls.date.hasError('required')">
-                    Дата обязательна для заполнения
+                    <strong>Дата</strong> обязательна для заполнения
+                </mat-error>
+                <mat-error *ngIf="billFormGroup.controls.date.hasError('matDatepickerParse')">
+                    "{{billFormGroup.controls.date.getError('matDatepickerParse').text}}"
+                    неверная дата!
                 </mat-error>
             </mat-form-field>
         </div>
@@ -33,6 +37,7 @@
                 <mat-label>Сумма:</mat-label>
                 <input 
                     matInput
+                    type="number"
                     formControlName="amount">
                     <span matSuffix>руб.</span>
                     <mat-error *ngIf="billFormGroup.controls.amount.hasError('required')">
@@ -52,6 +57,10 @@
                 <mat-datepicker #paymentDatepicker></mat-datepicker>
                 <mat-error *ngIf="billFormGroup.controls.paymentDate.hasError('required')">
                     <strong>Дата оплаты</strong> обязательна для заполнения
+                </mat-error>
+                <mat-error *ngIf="billFormGroup.controls.paymentDate.hasError('matDatepickerParse')">
+                    "{{billFormGroup.controls.paymentDate.getError('matDatepickerParse').text}}"
+                    неверная дата!
                 </mat-error>
             </mat-form-field>
         </div>

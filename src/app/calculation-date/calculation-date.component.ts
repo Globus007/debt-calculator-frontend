@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CalculatorDataService } from '../service/data/calculator-data.service';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({

@@ -25,6 +25,10 @@
                     formControlName="date">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="contractFormGroup.controls.date.hasError('matDatepickerParse')">
+                        "{{contractFormGroup.controls.date.getError('matDatepickerParse').text}}"
+                        неверная дата!
+                    </mat-error>
             </mat-form-field>
         </div>
 
@@ -34,6 +38,7 @@
                 <input 
                     matInput
                     name="fine"
+                    type="number"
                     formControlName="fine">
                 <span matSuffix>%</span>
             </mat-form-field>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CalculatorDataService } from '../service/data/calculator-data.service';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
-import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 @Component({
   selector: 'app-calculator',
