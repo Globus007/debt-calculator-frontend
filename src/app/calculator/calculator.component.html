@@ -16,12 +16,12 @@
 
             <mat-step 
                 state="all_inbox" 
-                label="Счета" 
+                label="ТТН" 
                 [stepControl]="calculatorFormGroup" 
                 errorMessage="Заполните поля!">
                     <h5 class="heading mt-5 mb-5">
-                        Введите информацию о счетах
-                        <button type="button" (click)="addBill()" class="btn btn-outline-info btn-sm">Добавить счёт</button>
+                        Введите информацию об отгрузке (услуге) ТТН
+                        <button type="button" (click)="addBill()" class="btn btn-outline-info btn-sm">Добавить ТТН</button>
                     </h5>
                     <div class="mb-2" formArrayName="bills" *ngFor="let bill of bills; let i=index">
                         <app-bill 

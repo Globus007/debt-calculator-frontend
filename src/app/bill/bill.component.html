@@ -4,12 +4,12 @@
 
         <div class="col-sm-2 mb-2">
             <mat-form-field class="full-width">
-                <mat-label>Номер:</mat-label>
+                <mat-label>Номер ТТН:</mat-label>
                 <input 
                     matInput
                     name="number"
                     formControlName="number"
-                    placeholder="номер счёта">
+                    placeholder="номер акта">
             </mat-form-field>
         </div>
 
@@ -48,7 +48,7 @@
 
         <div class="col-sm-3 mb-2">
             <mat-form-field class="full-width">
-                <mat-label>Дата оплаты:</mat-label>
+                <mat-label>Срок оплаты:</mat-label>
                 <input 
                     matInput
                     [matDatepicker]="paymentDatepicker"
@@ -56,7 +56,7 @@
                 <mat-datepicker-toggle matSuffix [for]="paymentDatepicker"></mat-datepicker-toggle>
                 <mat-datepicker #paymentDatepicker></mat-datepicker>
                 <mat-error *ngIf="billFormGroup.controls.paymentDate.hasError('required')">
-                    <strong>Дата оплаты</strong> обязательна для заполнения
+                    <strong>Срок оплаты</strong> обязательна для заполнения
                 </mat-error>
                 <mat-error *ngIf="billFormGroup.controls.paymentDate.hasError('matDatepickerParse')">
                     "{{billFormGroup.controls.paymentDate.getError('matDatepickerParse').text}}"
@@ -77,8 +77,8 @@
     </div>
 
     <h5>
-        Оплаты
-        <button type="button" (click)="addPayment()" class="btn btn-outline-info btn-sm">Добавить оплату</button>
+        Частичные оплаты
+        <button type="button" (click)="addPayment()" class="btn btn-outline-info btn-sm">Добавить частичную оплату</button>
     </h5>
     <div formArrayName="payments" *ngFor="let payment of payments; let i=index">
         <app-payment [index]="i" [payment]="payment" [bill]="bill" [paymentFormArray]="paymentFormArray">
